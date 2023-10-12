@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
 
-const DefaultNavbarMiddlePill = () => {
+export interface DefaultNavbarMiddlePillInterface {
+  customStyles ?: string;
+}
+
+const DefaultNavbarMiddlePill: React.FC<DefaultNavbarMiddlePillInterface> = ({ customStyles }) => {
   return (
     <>
-                <div className="group w-fit px-3 transition-all duration-200 ease-in-out py-2 min-h-[50px] bg-white border-2 flex items-center justify-between gap-5 border-[#EDEDED] rounded-full">
+                <div className={`group w-fit px-3 transition-all duration-200 ease-in-out py-2 min-h-[50px] bg-white border-2 flex items-center justify-between gap-5 border-[#EDEDED] rounded-full ${customStyles}`}>
 
             <Link 
             href="about"

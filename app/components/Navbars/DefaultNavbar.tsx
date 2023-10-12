@@ -5,12 +5,18 @@ import React from 'react'
 // Component Imports 
 import DefaultNavbarMiddlePill from './components/DefaultNavbarMiddlePill';
 import ShoppingCartButton from '../Buttons/ShoppingCartButton';
+import HamburgerMenuButton from "../Buttons/HamburgerMenuButton";
 
 const DefaultNavbar = () => {
   return (
     <>
       <nav className="flex justify-center items-center  px-7 py-6">
         <section className="w-full ml-auto mr-auto h-full max-w-[1200px]  flex justify-between items-center">
+                    <HamburgerMenuButton 
+            buttonDimensions={50}
+            customStyles="hidden md:flex lg:hidden"
+          />
+
           <div className="flex items-center justify-center gap-4 cursor-pointer">
             <div className="w-[40px] h-[40px] relative">
               <Image 
@@ -22,9 +28,11 @@ const DefaultNavbar = () => {
             <h1 className="text-2xl font-bold ">Game Day Grill</h1> 
           </div>
 
-          <DefaultNavbarMiddlePill />
+          <DefaultNavbarMiddlePill 
+          customStyles="hidden lg:flex"
+          />
 
-          <div className="w-fit h-[20px] flex items-center justify-center gap-7">
+          <div className="w-fit h-[20px] hidden md:flex items-center justify-center gap-7">
             
             <ShoppingCartButton 
             buttonDimensions={40}
@@ -37,6 +45,12 @@ const DefaultNavbar = () => {
               <p className="text-[0.9rem] font-medium text-white">Sign Up</p>
             </Link>
           </div>
+            
+          <HamburgerMenuButton 
+            buttonDimensions={50}
+            customStyles="md:hidden"
+          />
+
         </section>
       </nav>
     </>
