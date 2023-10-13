@@ -19,7 +19,7 @@ const DefaultNavbar = () => {
             customStyles="hidden md:flex lg:hidden"
           />
 
-          <div className="flex items-center justify-center gap-4 cursor-pointer">
+          <Link href="/" className="flex items-center justify-center gap-4 cursor-pointer">
             <div className="w-[40px] h-[40px] relative">
               <Image 
               src="images/logo-big.svg"
@@ -27,8 +27,8 @@ const DefaultNavbar = () => {
               layout="fill"
               />
             </div>
-            <h1 className="text-2xl font-bold ">Game Day Grill</h1> 
-          </div>
+            <h1 className="text-2xl font-bold ">Game Day <span className="text-primary-red">Grill</span></h1> 
+          </Link>
 
           <DefaultNavbarMiddlePill 
           customStyles="hidden lg:flex"

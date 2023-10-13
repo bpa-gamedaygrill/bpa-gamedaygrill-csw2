@@ -3,7 +3,7 @@ import React from 'react'
 
 import { reset, close } from "../../redux/features/hamburgerMenuSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { X, Info as InfoIcon, BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Gift as RewardsIcon } from "react-feather";
+import { X, Info as InfoIcon, Calendar as CalendarIcon, Briefcase as BriefcaseIcon ,BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Gift as RewardsIcon, Briefcase } from "react-feather";
 import Link from 'next/link';
 
 // Component imports 
@@ -12,6 +12,8 @@ import MenuLogo from './components/MenuLogo';
 const SlidingHamburgerMenu: React.FC = () => {
   const dispatch = useAppDispatch();
   const menuState = useAppSelector((state) => state.hamburgerMenuReducer.opened);
+
+  const slideLinkStyles: string = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
 
   return (
     <>
@@ -27,33 +29,56 @@ const SlidingHamburgerMenu: React.FC = () => {
             </button>
           </div>
 
-          <section className="w-full py-5 mt-16 flex flex-col items-start gap-2">
-            <Link href="about" className="flex items-center justify-start gap-4 hover:bg-neutral-100 w-full py-4 px-5 bg-white rounded-md">
+          <section className="w-full py-5 mt-7 flex flex-col items-start gap-2">
+            <Link href="about" className={`${slideLinkStyles}`}>
               <InfoIcon 
               color='rgb(82, 82, 82)'
+                size={20}
               />
-              <p className="text-neutral-600">About</p>
+              <p className=" text-sm text-neutral-600">About</p>
             </Link>
-                        <Link href="menu" className="flex items-center justify-start gap-4 hover:bg-neutral-100 w-full py-4 px-5 bg-white rounded-md">
+                        <Link href="menu" className={`${slideLinkStyles}`}>
               <MenuOrderingIcon
               color='rgb(82, 82, 82)'
+                size={20}
               />
-              <p className="text-neutral-600">Menu</p>
+              <p className="text-neutral-600 text-sm">Menu</p>
             </Link>
-            <Link href="events" className="flex items-center justify-start gap-4 hover:bg-neutral-100 w-full py-4 px-5 bg-white rounded-md">
+            <Link href="events" className={`${slideLinkStyles}`}>
               <EventsIcon
               color='rgb(82, 82, 82)'
+                size={20}
               />
-              <p className="text-neutral-600">Events</p>
+              <p className="text-sm text-neutral-600">Events</p>
             </Link>
-            <Link href="rewards" className="flex items-center justify-start gap-4 hover:bg-neutral-100 w-full py-4 px-5 bg-white rounded-md">
-              <RewardsIcon
+            <Link href="reservations" className={`${slideLinkStyles}`}>
+              <CalendarIcon
               color='rgb(82, 82, 82)'
+                size={20}
               />
-              <p className="text-neutral-600">Rewards</p>
+              <p className="text-neutral-600 text-sm">Reservations</p>
             </Link>
 
-            <Link href="signup" className="flex items-center justify-center gap-4 hover:bg-neutral-200 w-full py-3 px-5 bg-neutral-100 rounded-md mt-7">
+            <div className="w-full h-[1px] bg-neutral-300 my-5"/>
+            <Link href="careers" className={`${slideLinkStyles}`}>
+              <BriefcaseIcon
+              color='rgb(82, 82, 82)'
+              size={20}
+              />
+              <p className="text-neutral-600 text-sm">Careers</p>
+            </Link>
+
+            <Link href="rewards" className={`${slideLinkStyles}`}>
+              <RewardsIcon
+              color='rgb(82, 82, 82)'
+                size={20}
+              />
+              <p className="text-neutral-600 text-sm">Rewards</p>
+            </Link>
+
+            <div className="w-full h-[1px] bg-neutral-200 mt-5"/>
+
+            <Link href="signup" className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md mt-7">
               <p className="text-neutral-600 text-sm font-semibold">Sign Up</p>
             </Link>
 
