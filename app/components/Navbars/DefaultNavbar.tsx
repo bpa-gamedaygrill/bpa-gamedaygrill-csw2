@@ -12,7 +12,7 @@ const DefaultNavbar = () => {
   return (
     <>
       <SlidingHamburgerMenu />
-      <nav className="flex justify-center items-center  px-7 py-6">
+      <nav className="flex justify-center items-center z-[99] fixed w-full top-0 left-0 px-7 bg-white backdrop-blur-[3px] py-6">
         <section className="w-full ml-auto mr-auto h-full max-w-[1200px]  flex justify-between items-center">
                     <HamburgerMenuButton 
             buttonDimensions={50}

@@ -15,8 +15,8 @@ const SlidingHamburgerMenu: React.FC = () => {
 
   return (
     <>
-      <section className={`lg:hidden fixed w-full h-full bg-black/40 backdrop-blur-[2px] z-[100] ${ menuState===false && "pointer-events-none opacity-0 delay-300 transition-all duration-100 ease-in-out" }`}>
-        <nav className={`h-full flex flex-col items-start w-full bg-white max-w-[330px] px-5 py-6 ${menuState===false ? "left-[-100%]" : "left-[0%]"} absolute top-0 transition-all duration-300 ease-in-out`}>
+      <section className={`lg:hidden top-0 left-0 fixed w-full h-full bg-black/40 backdrop-blur-[2px] z-[100] ${ menuState===false && "pointer-events-none opacity-0 delay-300 transition-all duration-100 ease-in-out" }`}>
+        <nav className={`h-full flex flex-col items-start w-full bg-white max-w-[330px] px-5 py-6 ${menuState===false ? "left-[-100%]" : "left-[0%]"} absolute top-0 transition-all duration-300 ease-in-out overflow-y-auto`}>
           <div className={`flex w-full items-center justify-between`}>
             <MenuLogo />
             <button className="w-[45px] h-[45px] bg-white border-2 border-light-gray hover:bg-neutral-100 flex items-center justify-center rounded-full p-1" onClick={() => dispatch(close())}>
