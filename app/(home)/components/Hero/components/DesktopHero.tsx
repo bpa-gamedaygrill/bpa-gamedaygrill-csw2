@@ -30,12 +30,13 @@ const DesktopHero = () => {
         {/* Right Side of the Hero Section (Where the IMG will go) */}
         <section className="w-full flex items-center justify-end h-full max-w-[50%] relative">
           <Image 
-          src="/images/hero_image.png"
+          src="/images/hero_img_2.png"
           alt="Hero Image"
-          width={425}
-          height={425}
+          width={500}
+          height={500}
           />
         </section>
+
       </div>
     </>
   )
