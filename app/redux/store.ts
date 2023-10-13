@@ -1,14 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
+import hamburgerMenuReducer from "./features/hamburgerMenuSlice";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
-// Reducer Imports
-import cartModalReducer from "./slices/cartModalSlice"
-
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    cartModal: cartModalReducer,
+    hamburgerMenuReducer,
   },
+  devTools: process.env.NODE_ENV !== "production",
 });
+
+setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export default store;

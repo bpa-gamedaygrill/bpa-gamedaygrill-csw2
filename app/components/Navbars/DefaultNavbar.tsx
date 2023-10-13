@@ -6,10 +6,12 @@ import React from 'react'
 import DefaultNavbarMiddlePill from './components/DefaultNavbarMiddlePill';
 import ShoppingCartButton from '../Buttons/ShoppingCartButton';
 import HamburgerMenuButton from "../Buttons/HamburgerMenuButton";
+import SlidingHamburgerMenu from "../NavigationMenus/SlidingHamburgerMenu";
 
 const DefaultNavbar = () => {
   return (
     <>
+      <SlidingHamburgerMenu />
       <nav className="flex justify-center items-center  px-7 py-6">
         <section className="w-full ml-auto mr-auto h-full max-w-[1200px]  flex justify-between items-center">
                     <HamburgerMenuButton 

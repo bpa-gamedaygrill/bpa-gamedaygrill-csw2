@@ -1,10 +1,11 @@
+"use client";
 import { createSlice } from '@reduxjs/toolkit';
 
-interface CounterState {
+interface CartModalState {
   isActive: boolean;
 }
 
-const initialState = { isActive : false } as CounterState;
+const initialState = { isActive : false } as CartModalState;
 
 const cartModalSlice = createSlice({
   name: 'cartModal',
