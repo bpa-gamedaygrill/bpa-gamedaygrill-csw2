@@ -8,7 +8,7 @@ const DesktopHero = () => {
       <div className="hidden lg:flex justify-between items-center gap-3 relative">
         {/* Left Side of the Hero Section */}
         <section className="flex flex-col items-start justify-start gap-10 max-w-[50%]">
-          <h1 className="font-bold text-3xl">Fueling Your Culinary Cravings and Game Day Spirit.</h1>
+          <h1 className="font-bold text-4xl">Fueling Your Culinary Cravings and Game Day Spirit.</h1>
           <p className="text-md opacity-70">Indulge in the ultimate culinary adventure where savory flavors meet adrenaline-pumping sports excitement. At Game Day Grill, each bite is a winning touchdown.</p>
           <div className="flex w-full items-center justify-start gap-2 h-full">
             <Link 
