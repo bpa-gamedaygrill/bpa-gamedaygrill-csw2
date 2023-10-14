@@ -4,6 +4,7 @@ import React from "react";
 import DefaultNavbar from "../components/Navbars/DefaultNavbar";
 import HeroSection from "./components/Hero/HeroSection";
 import PopularItemsSection from "./components/PopularItems/PopularItemsSection";
+import OrderOnlineBanner from "./components/Banner/OrderOnlineBanner";
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <DefaultNavbar />
       <HeroSection />
       <PopularItemsSection />
+      <OrderOnlineBanner />
     </>
   );
 }
