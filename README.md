@@ -1,7 +1,7 @@
 # Game Day Grill
 ## A submission for (435) BPA Web Design Competition, 2023-2024.
 
-This is the frontend repository for CSW Web Design Team 2.
+This is the Monorepo for CSW Web Design Team 2.
 
 ## Technologies Used:
 
