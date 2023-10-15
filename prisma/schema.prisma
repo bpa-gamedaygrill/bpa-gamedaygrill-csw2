@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,53 @@ generator client {
 datasource db {
   provider = "cockroachdb"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid()) 
+  fullName String
+  email String
+  hashedPassword String
+  deliveryAddresses DeliveryAddress[]
+  rewards Reward[]
+  purchases Purchase[]
+}
+
+model DeliveryAddress {
+  id String @id @default(cuid()) 
+  address String
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model MenuItem {
+  id String @id @default(cuid())
+  itemName String
+  itemDescription String?
+  itemPrice String
+  imageUrl String
+  purchases PurchaseItem[]
+}
+
+model Purchase {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  purchaseItems PurchaseItem[]
+}
+
+model PurchaseItem {
+  id String @id @default(cuid())
+  menuItemId String
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
+  quantity Int
+  purchaseId String
+  purchase Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+}
+
+model Reward {
+  id String @id @default(cuid())
+  discountPercentage Int
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
