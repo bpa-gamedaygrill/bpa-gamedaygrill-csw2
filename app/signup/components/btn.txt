@@ -1,0 +1,4 @@
+<button className={`w-full px-2 py-3 text-md transition-all duration-200 ease-in-out font-semibold rounded-full bg-primary-red text-white ${isLoading ? "cursor-auto bg-red-700/70": "hover:bg-red-700"}`} 
+disabled={isLoading}
+onClick={() => setIsLoading((isLoading) => true)}
+>Submit</button>

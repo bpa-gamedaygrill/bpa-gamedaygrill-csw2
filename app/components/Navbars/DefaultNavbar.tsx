@@ -8,11 +8,16 @@ import ShoppingCartButton from '../Buttons/ShoppingCartButton';
 import HamburgerMenuButton from "../Buttons/HamburgerMenuButton";
 import SlidingHamburgerMenu from "../NavigationMenus/SlidingHamburgerMenu";
 
-const DefaultNavbar = () => {
+interface DefaultNavbarInterface {
+  hideMiddlePill?: boolean;
+  bottomBorder?: boolean;
+}
+
+const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, bottomBorder }) => {
   return (
     <>
       <SlidingHamburgerMenu />
-      <nav className="flex justify-center items-center z-[99] fixed w-full top-0 left-0 px-7 bg-white backdrop-blur-[3px] py-6">
+      <nav className={`${bottomBorder && "border-b-[1px] border-neutral-black"} flex justify-center items-center z-[99] fixed w-full top-0 left-0 px-7 bg-white backdrop-blur-[3px] py-6 min-h-[105px]`}>
         <section className="w-full ml-auto mr-auto h-full max-w-[1200px]  flex justify-between items-center">
                     <HamburgerMenuButton 
             buttonDimensions={50}
@@ -30,9 +35,10 @@ const DefaultNavbar = () => {
             <h1 className="text-2xl font-bold ">Game Day <span className="text-primary-red">Grill</span></h1> 
           </Link>
 
+          { hideMiddlePill ? "" : 
           <DefaultNavbarMiddlePill 
           customStyles="hidden lg:flex"
-          />
+          /> }
 
           <div className="w-fit h-[20px] hidden md:flex items-center justify-center gap-7">
             
