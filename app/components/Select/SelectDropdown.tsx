@@ -7,9 +7,10 @@ export interface SelectDropdownInterface {
   selectPrompt: string;
   options: { name: string, value: string }[];
   fullWidth?: boolean;
+  includesResetButton?: boolean;
 }
 
-const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, fullWidth, selectPrompt, valueUpdateFunction }) => {
+const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction }) => {
   
   const [displayText, setDisplayText] = useState<string>(selectPrompt);
   const [value, setValue] = useState<string | null>(null);
@@ -19,15 +20,22 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, fullWidth,
 
   const handleSetValue = (e: any) => {
     setIsOpened(() => false);
-    setValue(() => e.target.id as string)
+    console.log(e.target)
+    setValue(() => e.target.getAttribute('data-value') as string)
+    setDisplayText(() => e.target.getAttribute('data-name') as string)
   }
 
   useEffect(() => {
     if(value) {
-      setDisplayText(value);
       valueUpdateFunction(value);
     }
   }, [value])
+
+  const reset = () => {
+    setIsOpened(() => false)
+    setValue(() => null);
+    setDisplayText(() => selectPrompt);
+  }
 
   return (
     <>
@@ -45,10 +53,11 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, fullWidth,
           { options.map(function(data, index) {
             return (
               <>
-                <p className={optionStyles} key={index} id={data.value} onClick={handleSetValue}>{ data.name }</p>
+                <p className={optionStyles} key={index} data-value={data.value} data-name={data.name} onClick={handleSetValue}>{ data.name }</p>
               </>
             )
           }) }
+          { includesResetButton && <> <div className="w-full !h-[1px] bg-neutral-200 my-2" ><p className="opacity-0">_</p></div> <p className={`${optionStyles} !py-2 mb-2`} onClick={reset}>Reset</p> </> }
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ const DesktopHero = () => {
           <p className="text-md opacity-70">Indulge in the ultimate culinary adventure where savory flavors meet adrenaline-pumping sports excitement. At Game Day Grill, each bite is a winning touchdown.</p>
           <div className="flex w-full items-center justify-start gap-2 h-full">
             <Link 
-            href="order"
+            href="menu"
             className="bg-primary-red px-6 py-0 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.9rem] font-medium text-white">Order Now</p>

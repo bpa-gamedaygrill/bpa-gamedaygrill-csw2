@@ -19,7 +19,7 @@ const OnlineOrderBannerContents = () => {
             <h1 className="md:text-4xl text-xl font-bold md:text-left text-center">Enjoy your favorite food, delivered straight to you.</h1>
             <p className="opacity-70 max-w-[80%] text-sm md:text-md md:text-left text-center">Order food for delivery or pickup on the Game Day Grill website.</p>
                       <Link 
-            href="order"
+            href="menu"
             className="bg-secondary-yellow px-6 py-0 flex items-center justify-center min-h-[40px] rounded-full hover:bg-[#AA8C23] transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.9rem] font-semibold text-black">Order Now</p>
