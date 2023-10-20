@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.minimal-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+.minimal-scrollbar::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+.minimal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(229, 229, 229);
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.minimal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(215, 215, 215);
+}
+
+.rotatex-sm {
+  transform: rotateX(20deg);
+  transform-origin: top;
+}
