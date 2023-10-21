@@ -10,7 +10,7 @@ const OrderOnlineBanner = () => {
   const ref = useRef(null);
   return (
     <>
-      <section ref={ref} className="px-7 mt-24 mb-20 h-fit min-h-[400px]">
+      <section ref={ref} className="px-7 hidden sm:block mt-24 mb-20 h-fit min-h-[400px]">
           <div className="w-full text-white relative mr-auto ml-auto max-w-[1200px] h-[300px] lg:h-[400px]">
           <AnimateOnScroll
           refElement={ref}
