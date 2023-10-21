@@ -82,7 +82,7 @@ const SlidingHamburgerMenu: React.FC = () => {
               <p className="text-neutral-600 text-sm font-semibold">Sign Up</p>
             </Link>
 
-            <Link href="order" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
+            <Link href="menu" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
               <p className="text-white font-semibold text-sm">Order Now</p>
             </Link>
           </section>

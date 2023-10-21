@@ -90,7 +90,7 @@ const Form = () => {
         <input type='text' onChange={updatePassword} value={password} placeholder='' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
 
-      <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md`} onClick={handleFormSubmit}>Sign Up</button>
+      <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-11`} onClick={handleFormSubmit}>Sign Up</button>
   </>
   )
 }
