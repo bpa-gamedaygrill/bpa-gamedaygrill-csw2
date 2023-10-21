@@ -79,15 +79,15 @@ const Form = () => {
   <>
       <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
         <p className={`${ fullNameError && "text-primary-red" }`}>Full Name*</p>
-        <input type='text' onChange={updateFullName} value={fullName} placeholder='' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
+        <input type='text' onChange={updateFullName} value={fullName} placeholder='Enter your name' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
       <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
         <p className={`${ emailError && "text-primary-red" }`}>Email*</p>
-        <input type='text' onChange={updateEmail} value={email} placeholder='' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
+        <input type='text' onChange={updateEmail} value={email} placeholder='Enter your email' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
       <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
         <p className={`${ passwordError && "text-primary-red" }`}>Password*</p>
-        <input type='text' onChange={updatePassword} value={password} placeholder='' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
+        <input type='text' onChange={updatePassword} value={password} placeholder='Enter your password' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
 
       <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-11`} onClick={handleFormSubmit}>Sign Up</button>

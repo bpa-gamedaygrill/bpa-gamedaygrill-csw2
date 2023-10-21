@@ -32,7 +32,7 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
               layout="fill"
               />
             </div>
-            <h1 className="text-2xl font-bold ">Game Day <span className="text-primary-red">Grill</span></h1> 
+            <h1 className="text-2xl tracking-tight font-bold ">Game Day <span className="text-primary-red">Grill</span></h1> 
           </Link>
 
           { hideMiddlePill ? "" : 
