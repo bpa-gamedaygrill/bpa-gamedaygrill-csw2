@@ -1,13 +1,14 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import { parseCookies, setCookie } from 'nookies';
 
 const Form = () => {
   const cookies = parseCookies()
 
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isFinished, setIsFinished] = useState<boolean>(false);
   const [fullName, setFullName] = useState<string>("");
   const [fullNameError, setFullNameError] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
@@ -34,6 +35,14 @@ const Form = () => {
     setPasswordError(() => false);
     setPassword(() => e.target.value);
   }
+
+  useEffect(() => {
+    if (isFinished) {
+      setTimeout(() => {
+        window.location.replace("/")
+      }, 1000)
+    }
+  }, [isFinished])
 
   const handleFormSubmit = () => {
     let errorCount: number = 0;
@@ -66,12 +75,13 @@ const Form = () => {
       setCookie(null, 'token', response.data.token)
       console.log("SUCCESSFULLY SIGNED UP!");
       console.log("RESPONSE:", response)
+      setIsFinished(() => true);
     })
     .catch(error => {
         console.error("An error has occured. Please check DB and Server logs.");
     })
     .finally(() => {
-        setIsLoading(() => false);
+        // setIsLoading(() => false);
     })
 
   }
@@ -90,7 +100,7 @@ const Form = () => {
         <input type='text' onChange={updatePassword} value={password} placeholder='Enter your password' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
 
-      <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-11`} onClick={handleFormSubmit}>Sign Up</button>
+      <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-11`} onClick={handleFormSubmit}>{ isFinished ? "Success" : isLoading ? "Loading..." : "Sign Up" }</button>
   </>
   )
 }

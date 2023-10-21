@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link';
+import { cookies } from 'next/headers'
 import React from 'react'
 
 // Component Imports 
@@ -14,6 +15,8 @@ interface DefaultNavbarInterface {
 }
 
 const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, bottomBorder }) => {
+  const cookieStore = cookies();
+  const token = cookieStore.get('token');
   return (
     <>
       <SlidingHamburgerMenu />
@@ -46,12 +49,22 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
             buttonDimensions={40}
             />
 
+            { token ? <>
+            <Link 
+            href="dashboard"
+            className="bg-primary-red px-6 py-2 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
+            >
+              <p className="text-[0.9rem] font-medium text-white">Dashboard</p>
+            </Link>
+            </> : <>
             <Link 
             href="signup"
             className="bg-primary-red px-6 py-2 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.9rem] font-medium text-white">Sign Up</p>
             </Link>
+              </> }
+
           </div>
             
           <HamburgerMenuButton 
