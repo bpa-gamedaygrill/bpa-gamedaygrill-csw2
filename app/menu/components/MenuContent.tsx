@@ -1,6 +1,7 @@
 import React from 'react'
 import MenuTopBar from './MenuTopBar'
 import MenuFiltersBar from './MenuFiltersBar'
+import MenuResults from './MenuResults'
 
 const MenuContent = () => {
   return (
@@ -9,6 +10,7 @@ const MenuContent = () => {
         <div className="w-full mr-auto ml-auto h-full max-w-[1200px]">
           <MenuTopBar />
           <MenuFiltersBar />
+          <MenuResults />
         </div>
       </main>
     </>

@@ -8,15 +8,16 @@ export interface SelectDropdownInterface {
   options: { name: string, value: string }[];
   fullWidth?: boolean;
   includesResetButton?: boolean;
+  customParentStyles?: string;
 }
 
-const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction }) => {
+const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles }) => {
   
   const [displayText, setDisplayText] = useState<string>(selectPrompt);
   const [value, setValue] = useState<string | null>(null);
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
-  const optionStyles: string = "w-full px-3 py-3 bg-white rounded-sm cursor-pointer hover:bg-neutral-100 text-neutral-600";
+  const optionStyles: string = "w-full px-3 text-sm py-3 bg-white rounded-sm cursor-pointer hover:bg-neutral-100 text-neutral-600";
 
   const handleSetValue = (e: any) => {
     setIsOpened(() => false);
@@ -39,8 +40,8 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
 
   return (
     <>
-      <div className="relative w-fit"> 
-        <div className={`${ fullWidth ? "w-full" : "min-w-[150px]" } bg-white cursor-pointer border-[1px] border-neutral-200 select-none rounded-md px-4 py-2 flex items-center justify-center gap-2`} onClick={() => setIsOpened(() => !isOpened)}>
+      <div className={`relative ${customParentStyles} `}> 
+        <div className={`${ fullWidth ? "w-full" : "min-w-[150px]" } bg-white cursor-pointer border-[1px] border-neutral-200 select-none rounded-md px-4 py-2 flex z-10 items-center justify-center gap-2`} onClick={() => setIsOpened(() => !isOpened)}>
           <p className="text-neutral-600">{ displayText }</p>
           <ChevronDown
           size={15}
@@ -49,7 +50,7 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
           />
         </div>
 
-        <div className={`absolute origin-top w-full transition-all duration-150 ease-in-out bg-white top-[100%] left-0 rounded-md px-1 py-1 border-[1px] border-neutral-200 max-h-[150px] overflow-y-auto minimal-scrollbar flex flex-col items-center justify-start gap-1 ${ isOpened ? "mt-1 pointer-events-all scale-100 opacity-100" : "rotatex-sm pointer-events-none opacity-0 !scale-95" } `}>
+        <div className={`absolute origin-top w-full z-40 transition-all duration-150 ease-in-out bg-white top-[100%] left-0 rounded-md px-1 py-1 border-[1px] border-neutral-200 max-h-[150px] overflow-y-auto minimal-scrollbar flex flex-col items-center justify-start gap-1 ${ isOpened ? "mt-1 pointer-events-all scale-100 opacity-100" : "rotatex-sm pointer-events-none opacity-0 !scale-95" } `}>
           { options.map(function(data, index) {
             return (
               <>
