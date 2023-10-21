@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import db from "../../../../libs/prisma/db";
 
-export async function GET(
+export async function POST(
   req: Request
 ) {
   try {

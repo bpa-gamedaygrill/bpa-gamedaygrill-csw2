@@ -18,7 +18,7 @@ const MenuResults = () => {
 
   const fetchMenuItems = () => {
     setIsLoading(() => true);
-    axios.get('/api/menu/getallitems')
+    axios.post('/api/menu/getallitems')
     .then(response => {
       console.log(response);
       setMenuItems(() => response.data.data)
