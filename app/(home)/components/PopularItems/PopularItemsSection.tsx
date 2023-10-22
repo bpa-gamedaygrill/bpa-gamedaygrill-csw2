@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-
 import { motion } from 'framer-motion';
 
 import { ChevronRight, ArrowRight } from 'react-feather';
@@ -20,7 +19,7 @@ const PopularItemsSection = () => {
       transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.4 }}
 >
             <div className="w-full flex items-center h-fit justify-between">
-              <h1 className="text-xl font-semibold">Categories</h1>
+              <h1 className="text-xl tracking-tight font-semibold">Categories</h1>
               <Link 
                 href="menu"
                 className="bg-white px-6 py-0 flex gap-2 items-center justify-center min-h-[40px] rounded-full hover:bg-neutral-100 transition-all duration-150 ease-in-out group"
