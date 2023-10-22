@@ -50,7 +50,7 @@ const PopularItemsSection = () => {
                 />
                 <p className="absolute top-[50%] left-[50%] text-white font-semibold text-xl opacity-90" style={{ transform: 'translate(-50%, -50%)' }}>Appetizers</p>
               </Link>
-              <Link href="menu?category=entree" className="relative md:w-1/4 w-full md:h-[100px] min-h-[100px]">
+              <Link href="menu?category=appetizer" className="relative md:w-1/4 w-full md:h-[100px] min-h-[100px]">
                 <Image 
                 src="/images/landing_entree_preview.png"     
                 alt="appetizers"
@@ -59,7 +59,7 @@ const PopularItemsSection = () => {
                 />
                 <p className="absolute top-[50%] left-[50%] text-white font-semibold text-xl opacity-90" style={{ transform: 'translate(-50%, -50%)' }}>Entrees</p>
               </Link>
-              <Link href="menu?category=dessert" className="relative md:w-1/4 w-full md:h-[100px] min-h-[100px]">
+              <Link href="menu?category=entree" className="relative md:w-1/4 w-full md:h-[100px] min-h-[100px]">
                 <Image 
                 src="/images/landing_dessert_preview.png"     
                 alt="appetizers"
@@ -68,7 +68,7 @@ const PopularItemsSection = () => {
                 />
                 <p className="absolute top-[50%] left-[50%] text-white font-semibold text-xl opacity-90" style={{ transform: 'translate(-50%, -50%)' }}>Desserts</p>
               </Link>
-              <Link href="menu?category=beverage" className="relative md:w-1/4 w-full md:h-[100px] min-h-[100px]">
+              <Link href="menu?category=beverages" className="relative md:w-1/4 w-full md:h-[100px] min-h-[100px]">
                 <Image 
                 src="/images/landing_beverages_preview.png"     
                 alt="appetizers"

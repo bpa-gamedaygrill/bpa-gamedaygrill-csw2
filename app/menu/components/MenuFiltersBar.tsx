@@ -1,46 +1,22 @@
 "use client";
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import SelectDropdown from '../../components/Select/SelectDropdown';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
 import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
 import { reset as resetMenuItemName, setNameFilter } from '../../redux/features/menuItemNameSlice';
 
-import { useSearchParams } from 'next/navigation'
-
 const MenuFiltersBar = () => {
-  const searchParams = useSearchParams()
-  const defaultCategory = searchParams.get('category') as MenuCategoryFilterType;
   const dispatch = useAppDispatch();
   const menuCategoryFilter = useAppSelector((state) => state.menuCategoryFilterReducer.filter);
 
-  let initialTOM: MenuCategoryFilterType = null;
-  if (defaultCategory == 'entree') {
-    initialTOM = 'entree'
-  }
-  if (defaultCategory == 'beverage') {
-    initialTOM = 'beverage'
-  }
-  if (defaultCategory == 'dessert') {
-    initialTOM = 'dessert'
-  }
-  if (defaultCategory == 'appetizer') {
-    initialTOM = 'appetizer'
-  }
-
-  // initialTOM = null;
-
-  const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(initialTOM);
+  const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(null);
   const [search, setSearch] = useState<string>("");
   
   const updateTypeOfMeal = ( value: MenuCategoryFilterType ) => {
     dispatch(setCategoryFilter(value as MenuCategoryFilterType));
     setTypeOfMeal(() => value as MenuCategoryFilterType);
   }
-
-  useEffect(() => {
-      // dispatch(setCategoryFilter(initialTOM as MenuCategoryFilterType));
-  }, [defaultCategory])
 
 
   const updateSearch = (e: any) => {
@@ -57,7 +33,6 @@ const MenuFiltersBar = () => {
         selectPrompt='Select a category'
         includesResetButton
         valueUpdateFunction={updateTypeOfMeal}
-        valueState={typeOfMeal}
         customParentStyles='z-20 md:w-fit w-full'
         options={
             [
@@ -81,8 +56,6 @@ const MenuFiltersBar = () => {
           }
       />
       <input type='text' onChange={updateSearch} value={search} placeholder='Search...' className="px-4 py-2 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full md:w-fit text-neutral-700 font-medium" />
-
-        { menuCategoryFilter }
 
       </div>
     </>

@@ -9,24 +9,12 @@ export interface SelectDropdownInterface {
   fullWidth?: boolean;
   includesResetButton?: boolean;
   customParentStyles?: string;
-  valueState?: string | null;
 }
 
-const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles, valueState }) => {
+const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles }) => {
   
-  let originalDisplay = null;
-  let originalValue = null;
-  if (valueState) {
-    originalDisplay = options.find(category => category.value === valueState)?.name;
-    if (originalDisplay === undefined) {
-      originalDisplay = null;
-    }
-    originalValue = valueState;
-  } else {
-    originalDisplay = selectPrompt;
-  }
-  const [displayText, setDisplayText] = useState<string>(originalDisplay as any);
-  const [value, setValue] = useState<string | null>(originalValue);
+  const [displayText, setDisplayText] = useState<string>(selectPrompt);
+  const [value, setValue] = useState<string | null>(null);
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const optionStyles: string = "w-full px-3 text-sm py-3 bg-white rounded-sm cursor-pointer hover:bg-neutral-100 text-neutral-600";
