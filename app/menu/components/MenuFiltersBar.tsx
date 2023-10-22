@@ -39,7 +39,7 @@ const MenuFiltersBar = () => {
   }
 
   useEffect(() => {
-      dispatch(setCategoryFilter(initialTOM as MenuCategoryFilterType));
+      // dispatch(setCategoryFilter(initialTOM as MenuCategoryFilterType));
   }, [defaultCategory])
 
 

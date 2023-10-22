@@ -1,6 +1,6 @@
 "use client";
 import MenuSkeleton from '../../components/Skeleton/MenuSkeleton';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
 import MenuItem from './MenuItem';
 import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
@@ -15,7 +15,11 @@ export interface MenuItemInterface {
   itemPrice: string;
 }
 
-const MenuResults = () => {
+interface MenuResultsInterface {
+  isFinished: boolean;
+}
+
+const MenuResults: React.FC<MenuResultsInterface> = ({ isFinished }) => {
   const searchParams = useSearchParams()
   const defaultCategory = searchParams.get('category') as MenuCategoryFilterType;
   const dispatch = useAppDispatch();
@@ -26,16 +30,27 @@ const MenuResults = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [menuItems, setMenuItems] = useState<MenuItemInterface[] | null>(null);
 
+  const isFirstRun = useRef(true);
+
 
   // useEffect(() => {
   //   console.log("[INITIAL_USEEFFECT] has occured")
   //   fetchMenuItems();
   // }, [defaultCategory])
-  //
+
+  
+
   useEffect(() => {
-    console.log("[MENU_FILTERS] Have Changed!", menuCategoryFilter, menuNameFilter)
-    fetchMenuItems()
-  }, [menuCategoryFilter, menuNameFilter])
+    console.log(isFinished);
+    if (isFinished==true) {
+      if (isFirstRun.current) {
+        isFirstRun.current = false;
+        return;
+      }
+      console.log("[MENU_FILTERS] Have Changed!", menuCategoryFilter, menuNameFilter)
+      fetchMenuItems()
+    }
+  }, [isFinished, menuCategoryFilter, menuNameFilter])
   //
   //   useEffect(() => {
   //   console.log("[MENU_NAME_FILTER] Has Changed!", menuNameFilter)
