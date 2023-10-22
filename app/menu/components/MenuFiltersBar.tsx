@@ -28,6 +28,8 @@ const MenuFiltersBar = () => {
     initialTOM = 'appetizer'
   }
 
+  // initialTOM = null;
+
   const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(initialTOM);
   const [search, setSearch] = useState<string>("");
   
@@ -37,8 +39,8 @@ const MenuFiltersBar = () => {
   }
 
   useEffect(() => {
-      dispatch(setCategoryFilter(typeOfMeal as MenuCategoryFilterType));
-  }, [])
+      dispatch(setCategoryFilter(initialTOM as MenuCategoryFilterType));
+  }, [defaultCategory])
 
 
   const updateSearch = (e: any) => {

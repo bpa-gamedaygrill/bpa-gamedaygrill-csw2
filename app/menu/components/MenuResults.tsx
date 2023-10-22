@@ -5,7 +5,6 @@ import axios from 'axios';
 import MenuItem from './MenuItem';
 import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
 import { useSearchParams } from 'next/navigation'
 
 export interface MenuItemInterface {
@@ -31,19 +30,7 @@ const MenuResults = () => {
   useEffect(() => {
     console.log("[INITIAL_USEEFFECT] has occured")
     fetchMenuItems();
-      if (defaultCategory == 'entree') {
-        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
-      }
-      if (defaultCategory == 'beverage') {
-        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
-      }
-      if (defaultCategory == 'dessert') {
-        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
-      }
-      if (defaultCategory == 'appetizer') {
-        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
-      }
-  }, [])
+  }, [defaultCategory])
 
   useEffect(() => {
     console.log("[MENU_CATEGORY_FILTER] Has Changed!", menuCategoryFilter)
@@ -61,6 +48,8 @@ const MenuResults = () => {
     axios.post('/api/menu/getallitems')
     .then(response => {
       console.log(response);
+        console.log("BEGAN FETCH!")
+        console.log("WORKING WITH THIS CATEGORY FILTER:", menuCategoryFilter);
         let menuItemData = response.data.data;
         if (menuCategoryFilter) {
           // Filter the response.data.data based on menuCategoryFilter
