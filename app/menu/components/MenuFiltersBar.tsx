@@ -34,6 +34,7 @@ const MenuFiltersBar = () => {
         includesResetButton
         valueUpdateFunction={updateTypeOfMeal}
         customParentStyles='z-20 md:w-fit w-full'
+        customReduxSlice={menuCategoryFilter}
         options={
             [
               {
@@ -56,6 +57,13 @@ const MenuFiltersBar = () => {
           }
       />
       <input type='text' onChange={updateSearch} value={search} placeholder='Search...' className="px-4 py-2 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full md:w-fit text-neutral-700 font-medium" />
+
+        <button className="w-full md:w-fit px-4 py-2.5 bg-primary-red text-white text-sm rounded-md hover:bg-red-700" onClick={() => {
+          setSearch(() => "");
+          dispatch(setNameFilter(null))
+          setTypeOfMeal(() => null)
+          dispatch(setCategoryFilter(null));
+        }}>Clear</button>
 
       </div>
     </>

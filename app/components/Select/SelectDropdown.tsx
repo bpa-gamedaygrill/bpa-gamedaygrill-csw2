@@ -9,9 +9,10 @@ export interface SelectDropdownInterface {
   fullWidth?: boolean;
   includesResetButton?: boolean;
   customParentStyles?: string;
+  customReduxSlice?: any;
 }
 
-const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles }) => {
+const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles, customReduxSlice }) => {
   
   const [displayText, setDisplayText] = useState<string>(selectPrompt);
   const [value, setValue] = useState<string | null>(null);
@@ -25,6 +26,15 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
     setValue(() => e.target.getAttribute('data-value') as string)
     setDisplayText(() => e.target.getAttribute('data-name') as string)
   }
+
+  useEffect(() => {
+    console.log(customReduxSlice)
+    if (customReduxSlice===null) {
+      setIsOpened(() => false);
+      setValue(() => null);
+      setDisplayText(() => selectPrompt);
+    }
+  }, [customReduxSlice])
 
   useEffect(() => {
     if(value) {
