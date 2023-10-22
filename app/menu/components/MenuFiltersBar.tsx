@@ -1,21 +1,26 @@
 "use client";
 import React, { useState } from 'react'
 import SelectDropdown from '../../components/Select/SelectDropdown';
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
+import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
+import { reset as resetMenuItemName, setNameFilter } from '../../redux/features/menuItemNameSlice';
 
 const MenuFiltersBar = () => {
-  const [typeOfMeal, setTypeOfMeal] = useState<string | null>(null);
-  const [priceRange, setPriceRange] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
+  const menuCategoryFilter = useAppSelector((state) => state.menuCategoryFilterReducer.filter);
+
+  const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(null);
   const [search, setSearch] = useState<string>("");
   
-  const updateTypeOfMeal = ( value: string ) => {
-    setTypeOfMeal(() => value);
+  const updateTypeOfMeal = ( value: MenuCategoryFilterType ) => {
+    dispatch(setCategoryFilter(value as MenuCategoryFilterType));
+    setTypeOfMeal(() => value as MenuCategoryFilterType);
   }
 
-  const updatePriceRange = ( value: string ) => {
-    setPriceRange(() => value);
-  }
 
   const updateSearch = (e: any) => {
+    dispatch(setNameFilter(e.target.value as string | null))
     setSearch(e.target.value);
   }
 
@@ -50,27 +55,8 @@ const MenuFiltersBar = () => {
             ]
           }
       />
-      <SelectDropdown 
-        selectPrompt='Select a price'
-        includesResetButton
-        valueUpdateFunction={updatePriceRange}
-        customParentStyles='z-10 md:w-fit w-full'
-        options={
-            [
-              {
-                name: 'Low to High',
-                value: 'lowtohigh'
-              },
-              {
-                name: 'High to Low',
-                value: 'hightolow'
-              },
-            ]
-          }
-      />
       <input type='text' onChange={updateSearch} value={search} placeholder='Search...' className="px-4 py-2 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full md:w-fit text-neutral-700 font-medium" />
 
-        <button className="w-full md:w-fit px-4 py-2.5 bg-primary-red text-white text-sm rounded-md hover:bg-red-700">Search</button>
       </div>
     </>
   )

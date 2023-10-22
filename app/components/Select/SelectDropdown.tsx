@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'react-feather';
 
 export interface SelectDropdownInterface {
-  valueUpdateFunction: (value: string) => void;
+  valueUpdateFunction: (value: any) => void;
   selectPrompt: string;
   options: { name: string, value: string }[];
   fullWidth?: boolean;
@@ -29,6 +29,8 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
   useEffect(() => {
     if(value) {
       valueUpdateFunction(value);
+    } else {
+      valueUpdateFunction(null);
     }
   }, [value])
 

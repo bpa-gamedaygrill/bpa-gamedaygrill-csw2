@@ -34,6 +34,7 @@ model MenuItem {
   itemDescription String?
   itemPrice String
   imageUrl String
+  type String
   purchases PurchaseItem[]
 }
 

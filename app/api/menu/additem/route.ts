@@ -7,10 +7,14 @@ export async function POST(
 ) {
   try {
     const body = await req.json();  
-    const { itemName, itemDescription, itemPrice, imageUrl } = body; 
+    const { itemName, itemDescription, type, itemPrice, imageUrl } = body; 
   
     if (!itemName) {
       return new NextResponse("Name is required", { status: 400 });
+    }
+
+    if (!type) {
+      return new NextResponse("Type is required", { status: 400 })
     }
 
     if (!itemDescription) {
@@ -36,7 +40,8 @@ export async function POST(
         itemName: itemName,
         itemPrice: itemPrice,
         itemDescription: itemDescription,
-        imageUrl: imageUrl
+        imageUrl: imageUrl,
+        type: type
       }
     })
 
