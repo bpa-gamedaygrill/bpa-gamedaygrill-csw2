@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SelectDropdown from '../../components/Select/SelectDropdown';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
@@ -35,6 +35,10 @@ const MenuFiltersBar = () => {
     dispatch(setCategoryFilter(value as MenuCategoryFilterType));
     setTypeOfMeal(() => value as MenuCategoryFilterType);
   }
+
+  useEffect(() => {
+      dispatch(setCategoryFilter(typeOfMeal as MenuCategoryFilterType));
+  }, [])
 
 
   const updateSearch = (e: any) => {
@@ -75,6 +79,8 @@ const MenuFiltersBar = () => {
           }
       />
       <input type='text' onChange={updateSearch} value={search} placeholder='Search...' className="px-4 py-2 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full md:w-fit text-neutral-700 font-medium" />
+
+        { menuCategoryFilter }
 
       </div>
     </>
