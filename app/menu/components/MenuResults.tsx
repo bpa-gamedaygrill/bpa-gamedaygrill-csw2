@@ -27,20 +27,20 @@ const MenuResults = () => {
   const [menuItems, setMenuItems] = useState<MenuItemInterface[] | null>(null);
 
 
+  // useEffect(() => {
+  //   console.log("[INITIAL_USEEFFECT] has occured")
+  //   fetchMenuItems();
+  // }, [defaultCategory])
+  //
   useEffect(() => {
-    console.log("[INITIAL_USEEFFECT] has occured")
-    fetchMenuItems();
-  }, [defaultCategory])
-
-  useEffect(() => {
-    console.log("[MENU_CATEGORY_FILTER] Has Changed!", menuCategoryFilter)
+    console.log("[MENU_FILTERS] Have Changed!", menuCategoryFilter, menuNameFilter)
     fetchMenuItems()
-  }, [menuCategoryFilter])
-
-    useEffect(() => {
-    console.log("[MENU_NAME_FILTER] Has Changed!", menuNameFilter)
-    fetchMenuItems()
-  }, [menuNameFilter])
+  }, [menuCategoryFilter, menuNameFilter])
+  //
+  //   useEffect(() => {
+  //   console.log("[MENU_NAME_FILTER] Has Changed!", menuNameFilter)
+  //   fetchMenuItems()
+  // }, [menuNameFilter])
 
 
   const fetchMenuItems = ( enableLoading?: boolean ) => {
