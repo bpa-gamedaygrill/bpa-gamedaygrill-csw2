@@ -5,6 +5,7 @@ import axios from 'axios';
 import MenuItem from './MenuItem';
 import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
 import { useSearchParams } from 'next/navigation'
 
 export interface MenuItemInterface {
@@ -30,6 +31,18 @@ const MenuResults = () => {
   useEffect(() => {
     console.log("[INITIAL_USEEFFECT] has occured")
     fetchMenuItems();
+      if (defaultCategory == 'entree') {
+        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
+      }
+      if (defaultCategory == 'beverage') {
+        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
+      }
+      if (defaultCategory == 'dessert') {
+        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
+      }
+      if (defaultCategory == 'appetizer') {
+        dispatch(setCategoryFilter(defaultCategory as MenuCategoryFilterType));
+      }
   }, [])
 
   useEffect(() => {
