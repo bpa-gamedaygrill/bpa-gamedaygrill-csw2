@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import '../global.css';
 
 export const metadata = {
-  title: 'Game Day Grill | Signup',
+  title: 'Game Day Grill | Login',
   description: 'Game Day Grill, submission for 2023-2024 (435) BPA Web Design Competition',
 };
 

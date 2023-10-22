@@ -3,14 +3,25 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { parseCookies, setCookie } from 'nookies';
 
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = ( message: string, isError?: boolean, isSuccess?: boolean ) => {
+  if (isError) {
+    toast.error(message)
+    return
+  } else if (isSuccess) {
+    toast.success(message)
+    return
+  }
+  toast(message)
+}
+
 const Form = () => {
   const cookies = parseCookies()
 
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
-  const [fullName, setFullName] = useState<string>("");
-  const [fullNameError, setFullNameError] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [emailError, setEmailError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
@@ -23,10 +34,6 @@ const Form = () => {
     }
   }, [])
 
-  const updateFullName = (e: any) => {
-    setFullNameError(() => false);
-    setFullName(() => e.target.value);
-  }
   const updateEmail = (e: any) => {
     setEmailError(() => false);
     setEmail(() => e.target.value);
@@ -47,11 +54,6 @@ const Form = () => {
   const handleFormSubmit = () => {
     let errorCount: number = 0;
     setIsLoading(true);
-    if (!fullName.trim()) {
-      setFullNameError(() => true);
-      errorCount++
-      setIsLoading(false);
-    }
     if (!email.trim()) {
       setEmailError(() => true);
       errorCount++
@@ -66,8 +68,7 @@ const Form = () => {
       return
     }
 
-    axios.post('/api/user/create', {
-      fullName: fullName,
+    axios.post('/api/user/login', {
       email: email,
       password: password
     })
@@ -75,22 +76,25 @@ const Form = () => {
       setCookie(null, 'token', response.data.token)
       console.log("SUCCESSFULLY SIGNED UP!");
       console.log("RESPONSE:", response)
+      notify("Success!", false, true);
       setIsFinished(() => true);
     })
     .catch(error => {
         console.error("An error has occured. Please check DB and Server logs.");
+        if (error.response.status === 401) {
+          notify("No user with that email exists.", true)
+        } 
+        if (error.response.status === 403) {
+          notify("Invalid credentials.", true)
+        }
+        setIsLoading(() => false);
     })
     .finally(() => {
-        // setIsLoading(() => false);
     })
 
   }
   return (
   <>
-      <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
-        <p className={`${ fullNameError && "text-primary-red" }`}>Full Name*</p>
-        <input type='text' onChange={updateFullName} value={fullName} placeholder='Enter your name' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
-      </div>
       <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
         <p className={`${ emailError && "text-primary-red" }`}>Email*</p>
         <input type='text' onChange={updateEmail} value={email} placeholder='Enter your email' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
@@ -100,7 +104,7 @@ const Form = () => {
         <input type='text' onChange={updatePassword} value={password} placeholder='Enter your password' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
 
-      <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-0`} onClick={handleFormSubmit}>{ isFinished ? "Success" : isLoading ? "Loading..." : "Sign Up" }</button>
+      <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-0`} onClick={handleFormSubmit}>{ isFinished ? "Success" : isLoading ? "Loading..." : "Log In" }</button>
   </>
   )
 }
