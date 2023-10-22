@@ -3,8 +3,9 @@ import MenuSkeleton from '../../components/Skeleton/MenuSkeleton';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import MenuItem from './MenuItem';
-
+import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useSearchParams } from 'next/navigation'
 
 export interface MenuItemInterface {
   id: string;
@@ -15,7 +16,8 @@ export interface MenuItemInterface {
 }
 
 const MenuResults = () => {
-  
+  const searchParams = useSearchParams()
+  const defaultCategory = searchParams.get('category') as MenuCategoryFilterType;
   const dispatch = useAppDispatch();
   const menuCategoryFilter = useAppSelector((state) => state.menuCategoryFilterReducer.filter);
   const menuNameFilter = useAppSelector((state) => state.menuItemNameReducer.itemName)
@@ -24,13 +26,19 @@ const MenuResults = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [menuItems, setMenuItems] = useState<MenuItemInterface[] | null>(null);
 
+
   useEffect(() => {
-    console.log("[MENU_CATEGORY_FILTER] Has Changed!")
+    console.log("[INITIAL_USEEFFECT] has occured")
+    fetchMenuItems();
+  }, [])
+
+  useEffect(() => {
+    console.log("[MENU_CATEGORY_FILTER] Has Changed!", menuCategoryFilter)
     fetchMenuItems()
   }, [menuCategoryFilter])
 
     useEffect(() => {
-    console.log("[MENU_NAME_FILTER] Has Changed!")
+    console.log("[MENU_NAME_FILTER] Has Changed!", menuNameFilter)
     fetchMenuItems()
   }, [menuNameFilter])
 
@@ -62,9 +70,6 @@ const MenuResults = () => {
     })
   }
 
-  useEffect(() => {
-    fetchMenuItems();
-  }, [])
 
 return (
     <>
