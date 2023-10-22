@@ -1,4 +1,3 @@
-"use client";
 import { configureStore } from "@reduxjs/toolkit";
 import hamburgerMenuReducer from "./features/hamburgerMenuSlice";
 import menuCategoryFilterReducer from "./features/menuCategoryFilterSlice";

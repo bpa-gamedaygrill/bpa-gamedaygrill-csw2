@@ -1,11 +1,10 @@
 "use client";
 import MenuSkeleton from '../../components/Skeleton/MenuSkeleton';
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import MenuItem from './MenuItem';
-import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
+
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useSearchParams } from 'next/navigation'
 
 export interface MenuItemInterface {
   id: string;
@@ -15,13 +14,8 @@ export interface MenuItemInterface {
   itemPrice: string;
 }
 
-interface MenuResultsInterface {
-  isFinished: boolean;
-}
-
-const MenuResults: React.FC<MenuResultsInterface> = ({ isFinished }) => {
-  const searchParams = useSearchParams()
-  const defaultCategory = searchParams.get('category') as MenuCategoryFilterType;
+const MenuResults = () => {
+  
   const dispatch = useAppDispatch();
   const menuCategoryFilter = useAppSelector((state) => state.menuCategoryFilterReducer.filter);
   const menuNameFilter = useAppSelector((state) => state.menuItemNameReducer.itemName)
@@ -30,32 +24,15 @@ const MenuResults: React.FC<MenuResultsInterface> = ({ isFinished }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [menuItems, setMenuItems] = useState<MenuItemInterface[] | null>(null);
 
-  const isFirstRun = useRef(true);
-
-
-  // useEffect(() => {
-  //   console.log("[INITIAL_USEEFFECT] has occured")
-  //   fetchMenuItems();
-  // }, [defaultCategory])
-
-  
-
   useEffect(() => {
-    console.log(isFinished);
-    if (isFinished==true) {
-      if (isFirstRun.current) {
-        isFirstRun.current = false;
-        return;
-      }
-      console.log("[MENU_FILTERS] Have Changed!", menuCategoryFilter, menuNameFilter)
-      fetchMenuItems()
-    }
-  }, [isFinished, menuCategoryFilter, menuNameFilter])
-  //
-  //   useEffect(() => {
-  //   console.log("[MENU_NAME_FILTER] Has Changed!", menuNameFilter)
-  //   fetchMenuItems()
-  // }, [menuNameFilter])
+    console.log("[MENU_CATEGORY_FILTER] Has Changed!")
+    fetchMenuItems()
+  }, [menuCategoryFilter])
+
+    useEffect(() => {
+    console.log("[MENU_NAME_FILTER] Has Changed!")
+    fetchMenuItems()
+  }, [menuNameFilter])
 
 
   const fetchMenuItems = ( enableLoading?: boolean ) => {
@@ -63,8 +40,6 @@ const MenuResults: React.FC<MenuResultsInterface> = ({ isFinished }) => {
     axios.post('/api/menu/getallitems')
     .then(response => {
       console.log(response);
-        console.log("BEGAN FETCH!")
-        console.log("WORKING WITH THIS CATEGORY FILTER:", menuCategoryFilter);
         let menuItemData = response.data.data;
         if (menuCategoryFilter) {
           // Filter the response.data.data based on menuCategoryFilter
@@ -87,6 +62,9 @@ const MenuResults: React.FC<MenuResultsInterface> = ({ isFinished }) => {
     })
   }
 
+  useEffect(() => {
+    fetchMenuItems();
+  }, [])
 
 return (
     <>
