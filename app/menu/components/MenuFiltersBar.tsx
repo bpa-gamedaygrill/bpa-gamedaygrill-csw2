@@ -6,11 +6,29 @@ import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterS
 import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
 import { reset as resetMenuItemName, setNameFilter } from '../../redux/features/menuItemNameSlice';
 
+import { useSearchParams } from 'next/navigation'
+
 const MenuFiltersBar = () => {
+  const searchParams = useSearchParams()
+  const defaultCategory = searchParams.get('category') as MenuCategoryFilterType;
   const dispatch = useAppDispatch();
   const menuCategoryFilter = useAppSelector((state) => state.menuCategoryFilterReducer.filter);
 
-  const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(null);
+  let initialTOM: MenuCategoryFilterType = null;
+  if (defaultCategory == 'entree') {
+    initialTOM = 'entree'
+  }
+  if (defaultCategory == 'beverage') {
+    initialTOM = 'beverage'
+  }
+  if (defaultCategory == 'dessert') {
+    initialTOM = 'dessert'
+  }
+  if (defaultCategory == 'appetizer') {
+    initialTOM = 'appetizer'
+  }
+
+  const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(initialTOM);
   const [search, setSearch] = useState<string>("");
   
   const updateTypeOfMeal = ( value: MenuCategoryFilterType ) => {
@@ -33,6 +51,7 @@ const MenuFiltersBar = () => {
         selectPrompt='Select a category'
         includesResetButton
         valueUpdateFunction={updateTypeOfMeal}
+        valueState={typeOfMeal}
         customParentStyles='z-20 md:w-fit w-full'
         options={
             [
