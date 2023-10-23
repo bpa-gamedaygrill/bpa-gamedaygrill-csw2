@@ -21,6 +21,7 @@
     "cookies-next": "^4.0.0",
     "dotenv": "^16.3.1",
     "framer-motion": "^10.16.4",
+    "ioredis": "^5.3.2",
     "jsonwebtoken": "^9.0.2",
     "next": "13.5.4",
     "next-redux-wrapper": "^8.1.0",
