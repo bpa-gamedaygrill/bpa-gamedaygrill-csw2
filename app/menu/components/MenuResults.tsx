@@ -22,49 +22,59 @@ const MenuResults = () => {
 
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  // After filtering
   const [menuItems, setMenuItems] = useState<MenuItemInterface[] | null>(null);
+  // Total set: no filtering
+  const [baseMenuItems, setBaseMenuItems] = useState<MenuItemInterface[] | null>(null);
 
-  useEffect(() => {
-    console.log("[MENU_CATEGORY_FILTER] Has Changed!")
-    fetchMenuItems()
-  }, [menuCategoryFilter])
-
-    useEffect(() => {
-    console.log("[MENU_NAME_FILTER] Has Changed!")
-    fetchMenuItems()
-  }, [menuNameFilter])
-
-
-  const fetchMenuItems = ( enableLoading?: boolean ) => {
-    if(enableLoading) setIsLoading(() => true);
-    axios.post('/api/menu/getallitems')
-    .then(response => {
-      console.log(response);
-        let menuItemData = response.data.data;
-        if (menuCategoryFilter) {
-          // Filter the response.data.data based on menuCategoryFilter
-          menuItemData = response.data.data.filter((item: any) => item.type === menuCategoryFilter);
-        } 
-
-        if (menuNameFilter) {
-          if(menuNameFilter.trim() != "") {
-            menuItemData = menuItemData.filter((item: any) => item.itemName.toLowerCase().includes(menuNameFilter.trim().toLowerCase()));
-          }
-        }
-
-        setMenuItems(menuItemData);
-      })
-    .catch(error => {
-      console.log(error);
-    })
-    .finally(() => {
-      setIsLoading(() => false);
-    })
-  }
-
+  
   useEffect(() => {
     fetchMenuItems();
   }, [])
+
+
+  useEffect(() => {
+    console.log("Category Filters have changed!")
+    filterData();
+  }, [menuCategoryFilter, menuNameFilter])
+
+
+  const filterData = () => {
+    // Uses baseMenuItems as a reference
+    let menuItemData = baseMenuItems;
+    if (!menuItemData) {
+      return
+    }
+    if (menuCategoryFilter) {
+      menuItemData = menuItemData.filter((item: any) => item.type === menuCategoryFilter);
+    } 
+
+    if (menuNameFilter) {
+      if(menuNameFilter.trim() != "") {
+        menuItemData = menuItemData.filter((item: any) => item.itemName.toLowerCase().includes(menuNameFilter.trim().toLowerCase()));
+      }
+    }
+
+    setMenuItems(menuItemData);
+  }
+
+
+  const fetchMenuItems = () => {
+      axios.post('/api/menu/getallitems')
+      .then(response => {
+        console.log(response);
+          let menuItemData = response.data.data;
+          setBaseMenuItems(menuItemData);
+          setMenuItems(menuItemData);
+        })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(() => false);
+      })
+
+  }
 
 return (
     <>

@@ -2,6 +2,8 @@ import { Providers } from "../redux/provider";
 import { Inter } from 'next/font/google'
 import '../global.css';
 
+import { cookies } from "next/headers";
+
 export const metadata = {
   title: 'Game Day Grill',
   description: 'Game Day Grill, submission for 2023-2024 (435) BPA Web Design Competition',
@@ -14,6 +16,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // const cookieStore = cookies()
+  // cartMiddlewareFunction(cookieStore);
   return (
     <html lang="en">
       <body className={inter.className}>
