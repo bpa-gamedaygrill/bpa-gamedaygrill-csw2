@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "build": "prisma generate && nx build --prod",
+    "build": "prisma migrate dev && prisma generate && nx build --prod",
     "test": "nx test"
   },
   "private": true,
@@ -27,7 +27,7 @@
     "next": "13.5.4",
     "next-redux-wrapper": "^8.1.0",
     "nookies": "^2.5.2",
-    "prisma": "^5.4.2",
+    "prisma": "^5.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
