@@ -1,14 +1,20 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SelectDropdown from '../../components/Select/SelectDropdown';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { MenuCategoryFilterType } from '../../redux/features/menuCategoryFilterSlice';
 import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
 import { reset as resetMenuItemName, setNameFilter } from '../../redux/features/menuItemNameSlice';
 
+import { useSearchParams } from 'next/navigation'
+
 const MenuFiltersBar = () => {
   const dispatch = useAppDispatch();
   const menuCategoryFilter = useAppSelector((state) => state.menuCategoryFilterReducer.filter);
+
+  const searchParams = useSearchParams()
+ 
+  const categoryParam = searchParams.get('category') as MenuCategoryFilterType;
 
   const [typeOfMeal, setTypeOfMeal] = useState<MenuCategoryFilterType>(null);
   const [search, setSearch] = useState<string>("");
@@ -23,6 +29,20 @@ const MenuFiltersBar = () => {
     dispatch(setNameFilter(e.target.value as string | null))
     setSearch(e.target.value);
   }
+
+  useEffect(() => {
+    if (categoryParam==="beverage") {
+      dispatch(setCategoryFilter("beverage"));
+    } else if (categoryParam==="entree") {
+      dispatch(setCategoryFilter("entree"));
+    } else if (categoryParam==="dessert") {
+      dispatch(setCategoryFilter("dessert"));
+    } else if (categoryParam==="appetizer") {
+      dispatch(setCategoryFilter("appetizer"));
+    } else {
+      dispatch(setCategoryFilter(null));
+    }
+  }, [])
 
 
   return (

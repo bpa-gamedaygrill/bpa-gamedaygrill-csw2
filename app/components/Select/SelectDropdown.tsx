@@ -28,11 +28,17 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
   }
 
   useEffect(() => {
-    console.log(customReduxSlice)
+    console.log("FRO SELECT")
     if (customReduxSlice===null) {
       setIsOpened(() => false);
       setValue(() => null);
       setDisplayText(() => selectPrompt);
+    } else if (!(customReduxSlice==value)) {
+      console.log("They dont match")
+      setIsOpened(() => false);
+      setValue(() => customReduxSlice);
+      const display = options.find(category => category.value === customReduxSlice)?.name;
+      setDisplayText(() => display as any);
     }
   }, [customReduxSlice])
 

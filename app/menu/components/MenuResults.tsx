@@ -5,6 +5,7 @@ import axios from 'axios';
 import MenuItem from './MenuItem';
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { reset, setCategoryFilter } from '../../redux/features/menuCategoryFilterSlice';
 
 export interface MenuItemInterface {
   id: string;
@@ -34,9 +35,12 @@ const MenuResults = () => {
 
 
   useEffect(() => {
-    console.log("Category Filters have changed!")
     filterData();
   }, [menuCategoryFilter, menuNameFilter])
+
+  useEffect(() => {
+    filterData();
+  }, [baseMenuItems])
 
 
   const filterData = () => {
@@ -62,7 +66,6 @@ const MenuResults = () => {
   const fetchMenuItems = () => {
       axios.post('/api/menu/getallitems')
       .then(response => {
-        console.log(response);
           let menuItemData = response.data.data;
           setBaseMenuItems(menuItemData);
           setMenuItems(menuItemData);
