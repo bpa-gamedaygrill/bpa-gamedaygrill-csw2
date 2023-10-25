@@ -38,6 +38,19 @@ model MenuItem {
   purchases PurchaseItem[]
 }
 
+model Cart {
+  id String @id @default(cuid())
+  cartItems CartItem[]
+}
+
+model CartItem {
+  id String @id @default(cuid())
+  menuItemId String
+  cartId String
+  cart Cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+}
+
+
 model Purchase {
   id String @id @default(cuid())
   userId String
