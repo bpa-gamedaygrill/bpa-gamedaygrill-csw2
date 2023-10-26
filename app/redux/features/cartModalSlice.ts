@@ -11,6 +11,7 @@ const cartModalSlice = createSlice({
   name: 'cartModal',
   initialState,
   reducers: {
+    reset: () => initialState,
     toggle(state) {
       state.isActive = !state.isActive;
     },

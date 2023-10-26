@@ -8,6 +8,7 @@ import DefaultNavbarMiddlePill from './components/DefaultNavbarMiddlePill';
 import ShoppingCartButton from '../Buttons/ShoppingCartButton';
 import HamburgerMenuButton from "../Buttons/HamburgerMenuButton";
 import SlidingHamburgerMenu from "../NavigationMenus/SlidingHamburgerMenu";
+import SlidingCartMenu from "../NavigationMenus/SlidingCartMenu";
 
 interface DefaultNavbarInterface {
   hideMiddlePill?: boolean;
@@ -20,6 +21,7 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
   return (
     <>
       <SlidingHamburgerMenu />
+      <SlidingCartMenu />
       <nav className={`${bottomBorder && "border-b-[1px] border-neutral-black"} flex justify-center items-center z-[99] fixed w-full top-0 left-0 px-7 bg-white backdrop-blur-[3px] py-6 min-h-[105px]`}>
         <section className="w-full ml-auto mr-auto h-full max-w-[1200px]  flex justify-between items-center">
                     <HamburgerMenuButton 
@@ -55,8 +57,7 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
             className="bg-primary-red px-6 py-2 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.9rem] font-medium text-white">Dashboard</p>
-            </Link>
-            </> : <>
+            </Link> </> : <>
             <Link 
             href="signup"
             className="bg-primary-red px-6 py-2 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
