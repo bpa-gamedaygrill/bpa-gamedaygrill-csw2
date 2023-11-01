@@ -1,7 +1,7 @@
 "use client";
 import React from 'react'
 
-import { reset, close } from "../../redux/features/hamburgerMenuSlice";
+import { close } from "../../redux/features/hamburgerMenuSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { X, Info as InfoIcon, Calendar as CalendarIcon, Briefcase as BriefcaseIcon ,BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Gift as RewardsIcon, Briefcase } from "react-feather";
 import Link from 'next/link';
@@ -13,7 +13,7 @@ const SlidingHamburgerMenu: React.FC = () => {
   const dispatch = useAppDispatch();
   const menuState = useAppSelector((state) => state.hamburgerMenuReducer.opened);
 
-  const slideLinkStyles: string = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
+  const slideLinkStyles = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
 
   return (
     <>

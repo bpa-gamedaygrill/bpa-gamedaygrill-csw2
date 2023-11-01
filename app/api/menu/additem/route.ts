@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import db from "../../../../libs/prisma/db";
 
+
 export async function POST(
   req: Request
 ) {

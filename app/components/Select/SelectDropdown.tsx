@@ -22,13 +22,13 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
 
   const handleSetValue = (e: any) => {
     setIsOpened(() => false);
-    console.log(e.target)
+    // console.log(e.target)
     setValue(() => e.target.getAttribute('data-value') as string)
     setDisplayText(() => e.target.getAttribute('data-name') as string)
   }
 
   useEffect(() => {
-    console.log("FRO SELECT")
+    // console.log("FRO SELECT")
     if (customReduxSlice===null) {
       setIsOpened(() => false);
       setValue(() => null);

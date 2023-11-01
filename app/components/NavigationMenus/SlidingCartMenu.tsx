@@ -13,7 +13,7 @@ const SlidingCartMenu: React.FC = () => {
   const dispatch = useAppDispatch();
   const cartState = useAppSelector((state) => state.cartModalReducer.isActive);
 
-  const slideLinkStyles: string = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
+  const slideLinkStyles = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
 
   return (
     <>

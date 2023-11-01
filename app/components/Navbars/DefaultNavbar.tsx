@@ -18,6 +18,7 @@ interface DefaultNavbarInterface {
 const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, bottomBorder }) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
+  // console.log("hi")
   return (
     <>
       <SlidingHamburgerMenu />

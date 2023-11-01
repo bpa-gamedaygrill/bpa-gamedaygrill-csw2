@@ -1,9 +1,13 @@
-import { Providers } from "../redux/provider";
+import { Providers } from "./redux/provider";
 import { Inter } from 'next/font/google'
-import '../global.css';
+import './global.css';
 
+import { cartMiddleware } from "../libs/cart/cartMiddleware";
 import { cookies } from "next/headers";
-import { cartMiddleware } from "../../libs/cart/cartMiddleware";
+
+import axios from "axios";
+
+import { myAction } from "./components/Actions/testAction";
 
 export const metadata = {
   title: 'Game Day Grill',
@@ -17,15 +21,16 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const cookieStore = cookies();
-  // const newCin = await cartMiddleware();
-  // if (newCin) {
-  //   console.log("HELLO")
-  //   cookies().set('cin', newCin.id);
+  // myAction();
+  // async function test() {
+  //   const hello =   axios.post('/api/test')
+  //   .then(function (response) {
+  //     console.log(response);
+  //   })
+  //   return hello
   // }
-  // console.log(`FROM LAYOUT: ${newCin}`)
-  // 'use server'
-  // console.log("hello")
+  // const testy = await test();
+  // console.log(testy);
   return (
     <html lang="en">
       <body className={inter.className}>
