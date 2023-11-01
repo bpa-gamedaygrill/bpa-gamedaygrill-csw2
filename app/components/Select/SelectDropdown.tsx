@@ -28,7 +28,6 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
   }
 
   useEffect(() => {
-    // console.log("FRO SELECT")
     if (customReduxSlice===null) {
       setIsOpened(() => false);
       setValue(() => null);
