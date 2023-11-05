@@ -16,7 +16,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollInterface> = ({ refElement, child
   
   return (
     <>
-      { isInView && <motion.div
+      { isInView ? <motion.div
         className={`${customStyling}`}
         initial={{ scale: originalScale, opacity: 0, filter: 'blur(3px)' }}
         animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
@@ -24,6 +24,11 @@ const AnimateOnScroll: React.FC<AnimateOnScrollInterface> = ({ refElement, child
         >
         {children}
         </motion.div>
+      : <>
+        <div className="opacity-0">
+        {children}
+        </div>
+      </>
       }
   </>
   )
