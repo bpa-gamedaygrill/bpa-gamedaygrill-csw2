@@ -5,6 +5,9 @@ import '../global.css';
 import { cookies } from "next/headers";
 import { cartMiddleware } from "../../libs/cart/cartMiddleware";
 
+// Component Imports 
+import Footer from "../components/Footer/Footer";
+
 export const metadata = {
   title: 'Game Day Grill',
   description: 'Game Day Grill, submission for 2023-2024 (435) BPA Web Design Competition',
@@ -31,6 +34,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Providers>
         {children}
+        <Footer />
         </Providers>
       </body>
     </html>

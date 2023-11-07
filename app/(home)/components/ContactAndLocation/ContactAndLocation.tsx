@@ -12,7 +12,7 @@ const ContactAndLocation = () => {
   const ref = useRef(null);
   return (
       <>
-        <section ref={ref} className="px-7 !mt-0 mb-20 h-fit">
+        <section ref={ref} id="contact" className="px-7 !mt-0 mb-20 h-fit">
           <div className="w-full relative mr-auto ml-auto max-w-[1200px]">
           <AnimateOnScroll
           refElement={ref}
