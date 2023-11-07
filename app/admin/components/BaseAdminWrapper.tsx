@@ -3,13 +3,14 @@ import React, { useRef } from 'react'
 
 // Component Imports 
 import AnimateOnScroll from '../../components/AOS/AnimateOnScroll';
-import SignupFormContent from './SignupFormContent';
+import BaseAdminContent from './BaseAdminContent';
 
-const SignupFormWrapper = () => {
+const BaseAdminWrapper = () => {
   const ref = useRef(null);
   return (
   <>
-      <section ref={ref} className="mt-44 w-full px-7">
+      <h1>HELLO</h1>
+      <section ref={ref} className="mt-44 w-full min-h-[50vh] px-7">
         <div className="max-w-[1200px] relative mr-auto ml-auto">
           <AnimateOnScroll
           refElement={ref}
@@ -17,7 +18,7 @@ const SignupFormWrapper = () => {
           once
           originalScale={0.97}
           >
-            <SignupFormContent />
+          <BaseAdminContent />
           </AnimateOnScroll>
         </div>
       </section>
@@ -25,4 +26,4 @@ const SignupFormWrapper = () => {
   )
 }
 
-export default SignupFormWrapper;
+export default BaseAdminWrapper;
