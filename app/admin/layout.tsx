@@ -17,7 +17,8 @@ export const metadata = {
 
 const inter = Inter({ subsets: ['latin'] })
 
-import ProtectRoute from "./components/security/ProtectRoute";
+import { headers } from 'next/headers';
+
 
 export default async function RootLayout({
   children,
@@ -27,13 +28,12 @@ export default async function RootLayout({
   console.log(process.env.ADMIN_CREDENTIAL);
   const cookieStore = cookies();
 
-  console.log(cookieStore.get('ownerverified')==undefined)
-    console.log(cookieStore.get('briojue'))
-    const ownerVerified: boolean = (!(!cookieStore.get('ownerverified') || cookieStore.get('ownerverified') == undefined))
-    const test = await createSecureUrl("/admin")
-    console.log(`SECUREURL: ${test}`);
+  const pathname = headers().get('x-next-pathname') as string;
+  console.log(pathname)
+  const ownerVerified: boolean = (!(!cookieStore.get('ownerverified') || cookieStore.get('ownerverified') == undefined))
+  const newSecureUrl = await createSecureUrl(pathname as string)
     if (!ownerVerified) {
-      redirect(`/security/verify?redirecturl="/admin"&secureurl="$2b$08$UiSEK4E7/VFZL0bk.LTQM.Vs0QuVgCK3klNv4GY/RNKjM1XyEepB6"`)
+      redirect(`/security/verify?redirecturl="${pathname}"&secureurl="${newSecureUrl as string}"`);
   }
   return (
     <html lang="en">
