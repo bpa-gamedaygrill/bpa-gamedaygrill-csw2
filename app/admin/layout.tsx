@@ -5,6 +5,10 @@ import "../global.css";
 import { cookies } from "next/headers";
 import { cartMiddleware } from "../../libs/cart/cartMiddleware";
 
+import { redirect } from "next/navigation";
+
+import { createSecureUrl } from "../../libs/utils/secureUrl/createSecureUrl";
+
 // Component Imports 
 export const metadata = {
   title: 'Game Day Grill',
@@ -24,11 +28,17 @@ export default async function RootLayout({
   const cookieStore = cookies();
 
   console.log(cookieStore.get('ownerverified')==undefined)
+    console.log(cookieStore.get('briojue'))
+    const ownerVerified: boolean = (!(!cookieStore.get('ownerverified') || cookieStore.get('ownerverified') == undefined))
+    const test = await createSecureUrl("/admin")
+    console.log(`SECUREURL: ${test}`);
+    if (!ownerVerified) {
+      redirect(`/security/verify?redirecturl="/admin"&secureurl="$2b$08$UiSEK4E7/VFZL0bk.LTQM.Vs0QuVgCK3klNv4GY/RNKjM1XyEepB6"`)
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-        { cookieStore.get('ownerverified')==undefined && <ProtectRoute cred={process.env.ADMIN_CREDENTIAL as string} /> }
         {children}
         </Providers>
       </body>

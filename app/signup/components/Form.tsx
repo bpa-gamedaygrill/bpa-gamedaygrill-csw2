@@ -97,7 +97,7 @@ const Form = () => {
       </div>
       <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
         <p className={`${ passwordError && "text-primary-red" }`}>Password*</p>
-        <input type='text' onChange={updatePassword} value={password} placeholder='Enter your password' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
+        <input type='password' onChange={updatePassword} value={password} placeholder='Enter your password' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
       </div>
 
       <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } text-white text-sm font-semibold py-3.5 px-4 rounded-md mb-0`} onClick={handleFormSubmit}>{ isFinished ? "Success" : isLoading ? "Loading..." : "Sign Up" }</button>
