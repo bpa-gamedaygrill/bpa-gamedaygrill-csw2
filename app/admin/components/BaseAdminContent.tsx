@@ -4,7 +4,6 @@ import Link from "next/link";
 const BaseAdminContent = () => {
   return (
   <>
-      <main>
         <h1 className="text-2xl font-semibold opacity-80 flex items-center justify-start gap-3">GamedayGrill Admin Panel</h1>
         <p className="text-sm mt-2 opacity-60 font-medium">Edit menu items, view reservations, edit events, and more</p>
       <div className="mt-12 flex items-center justify-start gap-3">
@@ -24,7 +23,6 @@ const BaseAdminContent = () => {
             <p className="text-black text-sm font-medium opacity-90">View Reservations</p>
           </Link>
       </div>
-      </main>
   </>
   )
 }
