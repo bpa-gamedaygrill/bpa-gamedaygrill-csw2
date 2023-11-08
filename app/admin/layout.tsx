@@ -1,6 +1,6 @@
 import { Providers } from "../redux/provider";
 import { Inter } from 'next/font/google'
-import '../global.css';
+import "../global.css";
 
 import { cookies } from "next/headers";
 import { cartMiddleware } from "../../libs/cart/cartMiddleware";
@@ -21,11 +21,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   console.log(process.env.ADMIN_CREDENTIAL);
+  const cookieStore = cookies();
+
+  console.log(cookieStore.get('ownerverified')==undefined)
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-        <ProtectRoute cred={process.env.ADMIN_CREDENTIAL as string} />
+        { cookieStore.get('ownerverified')==undefined && <ProtectRoute cred={process.env.ADMIN_CREDENTIAL as string} /> }
         {children}
         </Providers>
       </body>

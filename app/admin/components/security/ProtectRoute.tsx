@@ -44,15 +44,14 @@ const ProtectRoute: React.FC<ProtectRouteInterface> = ({ cred }) => {
     }
     setIsLoading(() => false);
   }
+
+  useEffect(() => {
+    console.log(`HELLO: ${ownerNotVerified && "hiu"}`)
+  }, [ownerNotVerified])
   return (
     <>
-      { 
-      ownerNotVerified &&
-      <motion.section
-        className="fixed top-0 left-0 w-full h-full bg-black/0 backdrop-blur-[6px] flex items-center justify-center z-[100]"
-        initial={{ scale: 0.97, opacity: 0, filter: 'blur(3px)' }}
-        animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.2, ease: 'easeInOut' }}
+      <section
+        className={`fixed px-3 top-0 left-0 w-full h-full bg-black/0 backdrop-blur-[6px] flex items-center justify-center z-[100]`}
         >
             <div className="w-full h-full bg-white max-w-[400px] px-7 py-8 rounded-md border-[1px] border-neutral-300 max-h-[250px]">
               <div className="w-full flex items-center justify-between">
@@ -63,13 +62,11 @@ const ProtectRoute: React.FC<ProtectRouteInterface> = ({ cred }) => {
               <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3 mt-10">
                 <input type='text' onChange={updateCredential} value={credential} placeholder='Enter your credential' className={`px-4 py-2.5 bg-white border-[1px] rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium ${ credentialError ? "border-primary-red/40 border-[1.5px]" : "border-neutral-200" }`} />
               </div>
-              <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } w-full text-white text-sm font-semibold py-2.5 px-4 rounded-md mb-0`} onClick={handleFormSubmit}>{ isLoading ? "Loading..." : "Sign Up" }</button>
+              <button className={`${ isLoading ? "bg-red-600/70 cursor-auto" : "bg-primary-red cursor-pointer hover:bg-red-700" } w-full text-white text-sm font-semibold py-2.5 px-4 rounded-md mb-0`} onClick={handleFormSubmit}>{ isLoading ? "Loading..." : "Submit" }</button>
               </div>
             </div>
-        </motion.section>
-      }
+        </section>
     </>
   )
 }
-
 export default ProtectRoute;
