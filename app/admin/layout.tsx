@@ -1,12 +1,8 @@
 import { Providers } from "../redux/provider";
 import { Inter } from 'next/font/google'
 import "../global.css";
-
 import { cookies } from "next/headers";
-import { cartMiddleware } from "../../libs/cart/cartMiddleware";
-
 import { redirect } from "next/navigation";
-
 import { createSecureUrl } from "../../libs/utils/secureUrl/createSecureUrl";
 
 // Component Imports 
@@ -18,6 +14,7 @@ export const metadata = {
 const inter = Inter({ subsets: ['latin'] })
 
 import { headers } from 'next/headers';
+import DefaultNavbar from "../../app/components/Navbars/DefaultNavbar";
 
 
 export default async function RootLayout({
@@ -25,11 +22,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log(process.env.ADMIN_CREDENTIAL);
   const cookieStore = cookies();
-
   const pathname = headers().get('x-next-pathname') as string;
-  console.log(pathname)
   const ownerVerified: boolean = (!(!cookieStore.get('ownerverified') || cookieStore.get('ownerverified') == undefined))
   const newSecureUrl = await createSecureUrl(pathname as string)
     if (!ownerVerified) {
@@ -39,6 +33,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
+          <DefaultNavbar />
         {children}
         </Providers>
       </body>

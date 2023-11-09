@@ -33,7 +33,7 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
           <Link href="/" className="flex items-center justify-center gap-4 cursor-pointer">
             <div className="w-[40px] h-[40px] relative">
               <Image 
-              src="images/logo-big.svg"
+              src="/images/logo-big.svg"
                 alt="logo"
               layout="fill"
               />
