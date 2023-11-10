@@ -5,6 +5,9 @@ import { X } from "react-feather";
 
 import MenuItem from '../../../../app/menu/components/MenuItem';
 
+import toast, { Toaster } from 'react-hot-toast';
+
+import axios from 'axios';
 
 import SelectDropdown from '../../../../app/components/Select/SelectDropdown';
 import { MenuCategoryFilterType } from '../../../../app/redux/features/menuCategoryFilterSlice';
@@ -31,24 +34,74 @@ const MenuEditNewItem = () => {
   const [itemPrice, setItemPrice] = useState<string>("");
   const [itemPriceError, setItemPriceError] = useState<boolean>(false);
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useEffect(() => {
+
+  const notify = ( message: string, isError: boolean ) => {
+    if (isError) {
+      toast.error(message)
+    } else {
+      toast.success(message)
+    }
+  };
+
+
+  const createNewMenuItem = () => {
+    const valid = checkIfFieldsAreValid();
+    if (!valid) {
+      return
+    }
+    setIsLoading(true)
+    try {
+      axios.post('/api/menu/additem', {
+        itemName: itemName,
+        itemPrice: itemPrice,
+        itemDescription: itemDesc,
+        imageUrl: imageUrl,
+        type: typeOfMeal
+      })
+      .then(response => {
+          console.log(response)
+          notify("Success", false)
+          closeNewItemModal();
+          window.location.reload();
+        })
+      .catch(error => {
+          console.log("An error Occured", error)
+          notify(error.response.data, true)
+          setIsLoading(false);
+        })
+    } catch(error) {
+      notify("Error Catch Block Triggered", true)
+    }
+  }
+
+
+  const checkIfFieldsAreValid = () => {
     let valid = false;
     if (!(itemName.trim() == "")) {
       if (!(itemDesc.trim() == "")) {
         if (!(itemPrice.trim() == "")) {
           if (!(imageUrl.trim() == "")) {
-            valid = true 
+            if (typeOfMeal) {
+              valid = true 
+            }
           }
         }
       }
     }
+    return valid
+  }
+
+
+  useEffect(() => {
+    const valid = checkIfFieldsAreValid();
     if (valid) {
       setPreviewAvailable(true)
     } else {
       setPreviewAvailable(false);
     }
-  }, [itemName, itemDesc, imageUrl, itemPrice])
+  }, [itemName, itemDesc, imageUrl, itemPrice, typeOfMeal])
 
 
   const updateTypeOfMeal = (value: MenuCategoryFilterType) => {
@@ -92,7 +145,7 @@ const MenuEditNewItem = () => {
   }
   return ( 
     <>
-
+      <Toaster />
       <div className={`fixed w-full h-full top-0 left-0 z-[200] bg-black/10 ${closeModalActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} transition-all duration-300 flex items-center justify-center p-2`}>
         <div className="w-full h-fit bg-white max-w-[350px] max-h-[200px]  px-9 py-7 overflow-y-auto minimal-scrollbar rounded-md">
           <p className="text-sm opacity-70 font-medium text-center">Are you sure? Your changes will be lost.</p>
@@ -116,7 +169,6 @@ const MenuEditNewItem = () => {
             </button>
           </div>
           <div className="flex flex-col mt-12 justify-start items-center w-full gap-8">
-
             <div className="w-full flex flex-col items-start font-medium text-md justify-start text-neutral-700 gap-3">
               <p className={`${ itemNameError && "text-primary-red" }`}>Item Name*</p>
               <input type='text' onChange={updateItemName} value={itemName} placeholder='Enter your name' className="px-4 py-2.5 bg-white border-[1px] border-neutral-200 rounded-md focus:outline-none focus:border-neutral-300 w-full text-neutral-700 font-medium" />
@@ -167,8 +219,8 @@ const MenuEditNewItem = () => {
               />
             </div>
 
-            <button className="w-full py-2 px-4 bg-primary-red hover:bg-red-700 text-white font-semibold tracking-tight rounded-md">
-              Create
+            <button className={`w-full py-2 px-4 bg-primary-red hover:bg-red-700 text-white font-semibold tracking-tight rounded-md ${isLoading && "!bg-red-700 cursor-auto opacity-80"}`} onClick={createNewMenuItem} disabled={isLoading}>
+              {isLoading ? "Loading..." : "Create"}
             </button>
 
             <div className="flex flex-col items-center justify-start gap-5 w-full">
