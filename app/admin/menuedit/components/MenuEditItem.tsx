@@ -12,8 +12,8 @@ interface MenuEditItemInterface {
 const MenuEditItem: React.FC<MenuEditItemInterface> = async({ imageUrl, itemName, itemDesc, itemPrice }) => {
   return (
   <>
-      <div className="w-full py-5 px-7 bg-white group rounded-lg border-[1px] gap-7 border-neutral-300 flex items-center justify-between">
-        <div className="relative w-full h-full min-h-[125px] max-w-[175px] max-h-[125px]">
+      <div className="w-full py-5 px-7 flex-col lg:flex-row bg-white group rounded-lg border-[1px] gap-7 border-neutral-300 flex items-center justify-between">
+        <div className="relative w-full h-full min-h-[125px] lg:max-w-[175px] max-h-[125px]">
           <Image 
           src={imageUrl}
           alt="Invalid Image URl"

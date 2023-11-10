@@ -21,7 +21,7 @@ const MenuEditContent = async() => {
   return (
   <>
       <section className="w-full bg-white border-[1px] border-neutral-300 py-6 px-8 rounded-lg">
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full flex-wrap gap-5 md:flex-row md:gap-3 flex-col items-center justify-between">
           <h1 className="text-2xl font-semibold tracking-tight">Menu Edit</h1>
           <div className="flex items-center justify-center gap-3">
           <Link href="/admin" className="bg-white hover:bg-neutral-100 px-4 py-2 rounded-full">
@@ -30,7 +30,7 @@ const MenuEditContent = async() => {
             <MenuEditNewItem />
           </div>
         </div>
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2  gap-7 mb-14 justify-center items-center">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2  gap-7 mb-14 justify-center items-center">
       {
       menuItems ? menuItems.map((item: any) => (
         <>
