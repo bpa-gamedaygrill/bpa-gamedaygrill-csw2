@@ -143,6 +143,7 @@ const MenuEditNewItem = () => {
                 includesResetButton
                 valueUpdateFunction={updateTypeOfMeal}
                 customParentStyles='z-20 w-full mb-3'
+                state={typeOfMeal}
                 options={
                     [
                       {

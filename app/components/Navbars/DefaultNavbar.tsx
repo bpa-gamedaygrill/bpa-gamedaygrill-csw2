@@ -54,13 +54,13 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
 
             { token ? <>
             <Link 
-            href="dashboard"
+            href="/dashboard"
             className="bg-primary-red px-6 py-2 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.9rem] font-medium text-white">Dashboard</p>
             </Link> </> : <>
             <Link 
-            href="signup"
+            href="/signup"
             className="bg-primary-red px-6 py-2 flex items-center justify-center min-h-[40px] rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.9rem] font-medium text-white">Sign Up</p>

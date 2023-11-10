@@ -10,9 +10,10 @@ export interface SelectDropdownInterface {
   includesResetButton?: boolean;
   customParentStyles?: string;
   customReduxSlice?: any;
+  state?: any;
 }
 
-const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles, customReduxSlice }) => {
+const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesResetButton, fullWidth, selectPrompt, valueUpdateFunction, customParentStyles, customReduxSlice, state }) => {
   
   const [displayText, setDisplayText] = useState<string>(selectPrompt);
   const [value, setValue] = useState<string | null>(null);
@@ -40,6 +41,13 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
       setDisplayText(() => display as any);
     }
   }, [customReduxSlice])
+
+
+  useEffect(() => {
+    if (state==null || !state) {
+      reset();
+    }
+  }, [state])
 
   useEffect(() => {
     if(value) {
