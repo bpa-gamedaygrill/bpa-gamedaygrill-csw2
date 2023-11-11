@@ -22,18 +22,6 @@
   background: rgb(215, 215, 215);
 }
 
-.rotatex-sm {
-  transform: rotateX(20deg);
-  transform-origin: top;
-}
-
-.menuitemimage {
-  animation: blur-in 0.4s ease-in-out;
-  filter: blur(4px);
-  opacity: 0.8;
-  scale: 0.99; 
-  animation-fill-mode: forwards;
-}
 
 @keyframes blur-in {
   0% {

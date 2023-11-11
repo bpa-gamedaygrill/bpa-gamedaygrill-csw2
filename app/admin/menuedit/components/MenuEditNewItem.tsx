@@ -49,6 +49,7 @@ const MenuEditNewItem = () => {
   const createNewMenuItem = () => {
     const valid = checkIfFieldsAreValid();
     if (!valid) {
+      notify("Fill out all fields", true);
       return
     }
     setIsLoading(true)
