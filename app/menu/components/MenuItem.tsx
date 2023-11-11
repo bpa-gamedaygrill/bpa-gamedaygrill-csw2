@@ -10,7 +10,7 @@ interface MenuItemComponentInterface {
 const MenuItem: React.FC<MenuItemComponentInterface> = ({ itemData, usedForPreview }) => {
   return (
   <>
-    <div className="flex test flex-col items-center gap-5 relative w-full">
+    <div className="flex test flex-col items-center gap-5 relative w-full h-full justify-between">
         <div className="w-full h-[150px] relative">
           <Image 
           src={itemData.imageUrl}
