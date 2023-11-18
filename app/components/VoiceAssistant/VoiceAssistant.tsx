@@ -11,8 +11,7 @@ interface SpeechRecognitionEvent extends Event {
 
 // Speech recognition libs
 
-
-const VoiceAssistant = () => {
+const VoiceAssistantContents = () => {
   // Speech recognition setup
   const [isActive , setIsActive] = useState<boolean>(false);
   const [isWelcomeActive, setIsWelcomeActive] = useState<boolean>(false);
@@ -137,6 +136,36 @@ const VoiceAssistant = () => {
           color='white'
           />
         </button>
+      </div>
+  </>
+  )
+
+}
+
+
+const VoiceAssistant = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 600);
+    };
+
+    // Set the initial screen size
+    handleResize();
+
+    // Attach the event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  return (
+  <>
+      <div className="fixed bottom-0 right-0 z-[1000]">
+      { isSmallScreen ? "" : <VoiceAssistantContents /> }
       </div>
   </>
   )
