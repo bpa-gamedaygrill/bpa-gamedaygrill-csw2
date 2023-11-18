@@ -28,11 +28,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
 
+  const isMobileDevice =
+    typeof window !== 'undefined' &&
+    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  console.log(isMobileDevice);
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          { isMobile ? "" : <VoiceAssistant /> }
+          { isMobileDevice ? "" : <VoiceAssistant /> }
          
         {children}
         <Footer />
