@@ -18,6 +18,8 @@ const inter = Inter({ subsets: ['latin'] })
 // Component Imports 
 import VoiceAssistant from "../components/VoiceAssistant/VoiceAssistant";
 
+import { isMobile } from "react-device-detect";
+
 
 
 export default async function RootLayout({
@@ -30,7 +32,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <VoiceAssistant />
+          { isMobile ? "" : <VoiceAssistant /> }
+         
         {children}
         <Footer />
         </Providers>
