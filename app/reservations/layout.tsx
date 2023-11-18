@@ -1,9 +1,9 @@
-import { Providers } from "./redux/provider";
+import { Providers } from "../redux/provider";
 import { Inter } from 'next/font/google'
-import './global.css';
+import '../global.css';
 
 export const metadata = {
-  title: 'Game Day Grill',
+  title: 'Game Day Grill | Reservations',
   description: 'Game Day Grill, submission for 2023-2024 (435) BPA Web Design Competition',
 };
 
@@ -18,7 +18,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          {children}
+        {children}
         </Providers>
       </body>
     </html>

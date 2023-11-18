@@ -15,24 +15,26 @@ export const metadata = {
 
 const inter = Inter({ subsets: ['latin'] })
 
+// Component Imports 
+import VoiceAssistant from "../components/VoiceAssistant/VoiceAssistant";
+
+
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const cookieStore = cookies();
-  // const newCin = await cartMiddleware();
-  // if (newCin) {
-  //   console.log("HELLO")
-  //   cookies().set('cin', newCin.id);
-  // }
-  // console.log(`FROM LAYOUT: ${newCin}`)
-  // 'use server'
-  // console.log("hello")
+  const handleSpeechRecognition = (phrase) => {
+    console.log('Recognized phrase:', phrase);
+    // Do something with the recognized phrase
+  };
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
+          <VoiceAssistant />
         {children}
         <Footer />
         </Providers>
