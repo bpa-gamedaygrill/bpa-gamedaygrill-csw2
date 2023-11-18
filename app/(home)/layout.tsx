@@ -25,10 +25,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const handleSpeechRecognition = (phrase) => {
-    console.log('Recognized phrase:', phrase);
-    // Do something with the recognized phrase
-  };
 
   return (
     <html lang="en">
