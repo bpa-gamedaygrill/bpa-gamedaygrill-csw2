@@ -17,6 +17,8 @@ const VoiceAssistantContents = () => {
   const [isWelcomeActive, setIsWelcomeActive] = useState<boolean>(false);
   const [transcription, setTranscription] = useState<string>("");
 
+  const [notSupported, setNotSupported] = useState<boolean>(true);
+
   const handleSpeechRecognition = (event: SpeechRecognitionEvent) => {
     const recognizedResults = Array.from(event.results)
       .map((result) => Array.from(result)
@@ -57,17 +59,25 @@ const VoiceAssistantContents = () => {
 
       if (recognizedPhrase.includes('tothemenu') ||
       recognizedPhrase.includes('tothemenupage') ||
-      recognizedPhrase.includes('tothemenupage')) {
+      recognizedPhrase.includes('menupage')) {
         console.log("MENU DETECTED")
         window.location.replace("/menu")
       }
 
       if (recognizedPhrase.includes('tosignup') ||
         recognizedPhrase.includes('tothesignuppage') ||
-        recognizedPhrase.includes('tothesignuppage')) {
+        recognizedPhrase.includes('signuppage')) {
         console.log("MENU DETECTED")
         window.location.replace("/signup")
       }
+
+        if (recognizedPhrase.includes('backhome') ||
+        recognizedPhrase.includes('tothehomepage') ||
+        recognizedPhrase.includes('homepage')) {
+        console.log("MENU DETECTED")
+        window.location.replace("/")
+      }
+
 
     }
   };
@@ -75,6 +85,7 @@ const VoiceAssistantContents = () => {
   useEffect(() => {
     // Check if the browser supports the SpeechRecognition API
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      setNotSupported(prev => false)
       try {
         const recognition = new ((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition)();
 
@@ -126,6 +137,8 @@ const VoiceAssistantContents = () => {
   }, [])
   return (
   <>
+      { !notSupported && (
+      <>
       <div className="fixed z-[100] bottom-5 right-5 min-w-[300px] group flex flex-col items-end justify-center pointer-events-none">
 
         <div className={`bg-white  pointer-events-auto ${ isActive ? "mb-0 opacity-0 blur-md" : isWelcomeActive ? "mb-5 opacity-60 hover:opacity-100 group-hover:opacity-100" : "mb-0 opacity-0 blur-md" } transition-all duration-300 absolute bottom-[100%] right-0 px-5 py-4 shadow-[0px_-1px_15px_0px_rgba(0,0,0,0.15)] rounded-lg`}>
@@ -148,6 +161,8 @@ const VoiceAssistantContents = () => {
           />
         </button>
       </div>
+      </>
+      ) }
   </>
   )
 

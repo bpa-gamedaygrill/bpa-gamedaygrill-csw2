@@ -4,9 +4,12 @@ import React from "react";
 import DefaultNavbar from "../components/Navbars/DefaultNavbar";
 import SignupFormWrapper from "./components/SignupFormWrapper";
 
+import VoiceAssistant from "../../app/components/VoiceAssistant/VoiceAssistant";
+
 const Index = () => {
   return (
     <>
+      <VoiceAssistant />
       <DefaultNavbar
       hideMiddlePill
       bottomBorder
