@@ -190,7 +190,7 @@ const VoiceAssistant = () => {
   }, []);
   return (
   <>
-      <div className="fixed bottom-0 right-0 z-[1000]">
+      <div className="fixed bottom-0 right-0 z-[100]">
       { isSmallScreen ? "" : <VoiceAssistantContents /> }
       </div>
   </>

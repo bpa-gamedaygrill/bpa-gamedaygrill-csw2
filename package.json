@@ -23,6 +23,8 @@
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",
     "cookies-next": "^4.0.0",
+    "dexie": "^3.2.4",
+    "dexie-react-hooks": "^1.1.7",
     "dotenv": "^16.3.1",
     "framer-motion": "^10.16.4",
     "ioredis": "^5.3.2",

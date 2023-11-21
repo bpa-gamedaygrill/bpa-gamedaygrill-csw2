@@ -17,7 +17,7 @@ const SlidingCartMenu: React.FC = () => {
 
   return (
     <>
-      <section className={`hidden md:block top-0 left-0 fixed w-full h-full bg-black/40 backdrop-blur-[2px] z-[100] ${ cartState===false && "pointer-events-none opacity-0 delay-300 transition-all duration-100 ease-in-out" }`}>
+      <section className={`hidden md:block top-0 left-0 fixed w-full h-full bg-black/40 backdrop-blur-[2px] z-[150] ${ cartState===false && "pointer-events-none opacity-0 delay-300 transition-all duration-100 ease-in-out" }`}>
         <nav className={`h-full flex flex-col items-start w-full bg-white max-w-[330px] px-5 py-6 ${cartState===false ? "right-[-100%]" : "right-[0%]"} absolute top-0 transition-all duration-300 ease-in-out overflow-y-auto`}>
           <div className={`flex w-full flex-row-reverse items-center justify-between`}>
             <MenuLogo />

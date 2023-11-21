@@ -34,8 +34,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Providers>
           <VoiceAssistant />
-         
-        {children}
+          {children}
         <Footer />
         </Providers>
       </body>
