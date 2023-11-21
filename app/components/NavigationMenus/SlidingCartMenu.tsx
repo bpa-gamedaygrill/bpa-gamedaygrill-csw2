@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 // Component imports 
 import MenuLogo from './components/MenuLogo';
+import CartContent from './components/CartContent';
 
 const SlidingCartMenu: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -30,17 +31,7 @@ const SlidingCartMenu: React.FC = () => {
           </div>
 
           <section className="w-full py-5 mt-7 flex flex-col items-start gap-2">
-            CART ITEMS
-
-            <div className="w-full h-[1px] bg-neutral-200 mt-5"/>
-
-            <button className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md mt-7">
-              <p className="text-neutral-600 text-sm font-semibold">Clear Cart</p>
-            </button>
-
-            <Link href="checkout" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
-              <p className="text-white font-semibold text-sm">Checkout</p>
-            </Link>
+            <CartContent/>
           </section>
         </nav>
       </section>
