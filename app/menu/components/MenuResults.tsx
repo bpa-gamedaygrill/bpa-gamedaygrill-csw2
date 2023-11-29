@@ -81,7 +81,7 @@ const MenuResults = () => {
 
 return (
     <>
-      <section className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 mb-28 justify-center items-center">
+      <section className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 mb-7 justify-center items-center">
         {isLoading ? (
           <>
             <MenuSkeleton />

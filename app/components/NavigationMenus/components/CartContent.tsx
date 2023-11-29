@@ -21,7 +21,7 @@ const CartContent = () => {
   }
   return (
   <>
-      <div className="w-full flex flex-col gap-9 max-h-[80%] overflow-y-auto minimal-scrollbar">
+      <div className="w-full flex flex-col gap-9 max-h-[400px] overflow-y-auto minimal-scrollbar">
         { !cartItems || cartItems.length==0 && <p className="opacity-60">You have no items in your cart.</p> }
         { (cartItems?.length ?? 0) > 0 && <p className="text-lg font-semibold tracking-tight mb-[-10px] opacity-60">{cartItems?.length} items added to cart</p> }
         {cartItems?.map(item => 

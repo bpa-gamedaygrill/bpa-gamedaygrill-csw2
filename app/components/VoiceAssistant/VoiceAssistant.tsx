@@ -86,6 +86,9 @@ const VoiceAssistantContents = () => {
     // Check if the browser supports the SpeechRecognition API
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       setNotSupported(prev => false)
+      if (!isActive) {
+        return
+      }
       try {
         const recognition = new ((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition)();
 
