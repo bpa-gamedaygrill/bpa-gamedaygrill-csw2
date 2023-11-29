@@ -28,7 +28,9 @@ const MenuItem: React.FC<MenuItemComponentInterface> = ({ itemData, usedForPrevi
         itemName: itemData.itemName,
         itemDesc: itemData.itemDescription,
         itemPrice: itemData.itemPrice,
-        imageUrl: itemData.imageUrl
+        originalItemPrice: itemData.itemPrice,
+        imageUrl: itemData.imageUrl,
+        itemQuantity: 1,
       })
       console.log("Successfully added item to cart")
     } catch(error) {

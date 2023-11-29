@@ -7,6 +7,8 @@ export interface DexieCartInterface {
   itemDesc: string;
   itemPrice: string;
   imageUrl: string;
+  itemQuantity: number;
+  originalItemPrice: string;
 }
 
 export class CartDatabase extends Dexie {
@@ -15,7 +17,7 @@ export class CartDatabase extends Dexie {
   constructor() {
     super('CartDatabase');
     this.version(1).stores({
-      cartItems: '++id, itemId, itemName, itemDesc, itemPrice, imageUrl',
+      cartItems: '++id, itemId, itemName, itemDesc, itemPrice, imageUrl, itemQuantity, originalItemPrice',
     });
     this.cartItems = this.table('cartItems');
   }
