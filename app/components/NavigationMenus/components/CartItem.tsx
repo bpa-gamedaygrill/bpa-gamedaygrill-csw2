@@ -19,7 +19,7 @@ const CartItem: React.FC<CartItemInterface> = ({ item }) => {
   const [itemQuantityInputValue, setItemQuantityInputValue] = useState<number>(item.itemQuantity)
   async function updateItemQuantity() {
     try {
-      await dexie.cartItems.update(item.id as number, { itemQuantity: itemQuantityInputValue, itemPrice: parseFloat(item.originalItemPrice)*itemQuantityInputValue })
+      await dexie.cartItems.update(item.id as number, { itemQuantity: itemQuantityInputValue, itemPrice: (parseFloat(item.originalItemPrice)*itemQuantityInputValue).toFixed(2) })
     } catch(error) {
       console.log(`Error updating item quanitity: ${error}`)
     }
@@ -32,7 +32,7 @@ const CartItem: React.FC<CartItemInterface> = ({ item }) => {
     }
   }
   const handlePlusClick = async() => {
-    if (itemQuantityInputValue < 100) {
+    if (itemQuantityInputValue < 99) {
       setItemQuantityInputValue(prev => prev+1) 
     }
   }
