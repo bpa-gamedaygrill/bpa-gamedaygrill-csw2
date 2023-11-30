@@ -22,6 +22,25 @@
   background: rgb(215, 215, 215);
 }
 
+.cart-btn-animate {
+  animation: cart-btn-animate 1500ms ease infinite;
+}
+
+@keyframes cart-btn-animate {
+  0% {
+    opacity: 100%;
+    scale: 1;
+  }
+  50% {
+    opacity: 90%;
+    scale: 1.1;
+  }
+  100% {
+  opacity: 100%;
+  scale: 1;
+  }
+}
+
 
 @keyframes blur-in {
   0% {
