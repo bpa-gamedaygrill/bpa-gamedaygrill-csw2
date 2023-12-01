@@ -46,6 +46,13 @@ export async function POST(
       } 
     })
 
+    const newReward = await db.reward.create({
+      data: {
+        discountPercentage: 15,
+        userId: newUser.id
+      }
+    })
+
     // Generate a JSON Web Token
     const tokenData: NewJwtReturnObject = newJwt(newUser);
 

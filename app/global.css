@@ -26,6 +26,13 @@
   animation: cart-btn-animate 1500ms ease infinite;
 }
 
+.custom-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 65px;
+}
+
 @keyframes cart-btn-animate {
   0% {
     opacity: 100%;
