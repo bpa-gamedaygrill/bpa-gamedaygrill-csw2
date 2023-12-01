@@ -36,7 +36,7 @@ const CartContent = () => {
       </div>
       <div className="w-full h-[1px] bg-neutral-200 mt-5"/>
 
-      <p className="my-3 text-center text-sm font-medium opacity-60 w-full">Subtotal: ${cartItems?.reduce((total, item) => total + parseFloat(item.itemPrice), 0)}</p>
+      <p className="my-3 text-center text-sm font-medium opacity-60 w-full">Subtotal: ${(cartItems?.reduce((total, item) => total + parseFloat(item.itemPrice), 0))?.toFixed(2)}</p>
       <button onClick={deleteAllItems} className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md">
         <p className="text-neutral-600 text-sm font-semibold">Clear Cart</p>
       </button>

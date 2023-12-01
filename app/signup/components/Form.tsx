@@ -73,12 +73,14 @@ const Form = () => {
     })
     .then(response => {
       setCookie(null, 'token', response.data.token)
+      setCookie(null, '__obj1', response.data.fullName)
+      setCookie(null, '__obj2', response.data.id)
       console.log("SUCCESSFULLY SIGNED UP!");
       console.log("RESPONSE:", response)
       setIsFinished(() => true);
     })
     .catch(error => {
-        console.error("An error has occured. Please check DB and Server logs.");
+        console.error("An error has occured. Please check DB and Server logs.", error);
     })
     .finally(() => {
         // setIsLoading(() => false);

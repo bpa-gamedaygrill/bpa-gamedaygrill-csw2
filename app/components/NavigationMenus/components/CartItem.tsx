@@ -68,7 +68,7 @@ const CartItem: React.FC<CartItemInterface> = ({ item }) => {
             />
           </button>
       </div>
-      <p className="text-sm font-semibold text-primary-red mt-4">${parseFloat(item.itemPrice)}</p>
+      <p className="text-sm font-semibold text-primary-red mt-4">${parseFloat(item.itemPrice).toFixed(2)}</p>
     </div>
   </>
   )
