@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import '../global.css';
 
 import { cookies } from "next/headers";
-import { cartMiddleware } from "../../libs/cart/cartMiddleware";
 
 // Component Imports 
 import Footer from "../components/Footer/Footer";
