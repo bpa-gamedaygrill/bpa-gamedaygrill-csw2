@@ -4,14 +4,21 @@ import { redirect } from 'next/dist/client/components/redirect';
 import React, { useState, useEffect, useRef } from 'react'
 import { Mic, X } from 'react-feather';
 
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { close, open } from "../../redux/features/cartModalSlice";
+
 
 interface SpeechRecognitionEvent extends Event {
   results: SpeechRecognitionResultList;
 }
 
 // Speech recognition libs
+interface VACInterface {
+  isSmallScreen: boolean;
+}
 
-const VoiceAssistantContents = () => {
+const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
+  const dispatch = useAppDispatch();
   // Speech recognition setup
   const [isActive , setIsActive] = useState<boolean>(false);
   const [isWelcomeActive, setIsWelcomeActive] = useState<boolean>(false);
@@ -41,12 +48,6 @@ const VoiceAssistantContents = () => {
 
       console.log(recognizedPhrase)
 
-      // Perform actions based on the recognized phrase
-      if (recognizedPhrase == 'heybob') {
-        console.log('Hey Bob detected!');
-        setIsActive(prevIsActive => true);
-        return
-      } 
       if (recognizedPhrase.includes("stop")) {
         setIsActive(prevIsActive => false);
         return
@@ -57,24 +58,48 @@ const VoiceAssistantContents = () => {
       }
       console.log("after: ", recognizedPhrase)
 
-      if (recognizedPhrase.includes('tothemenu') ||
-      recognizedPhrase.includes('tothemenupage') ||
-      recognizedPhrase.includes('menupage')) {
-        console.log("MENU DETECTED")
+      if (recognizedPhrase.includes('appetizer')) {
+        window.location.replace("/menu?category=appetizer")
+      }
+
+      if (recognizedPhrase.includes('entree')) {
+        window.location.replace("/menu?category=entree")
+      }
+
+      if (recognizedPhrase.includes('dessert')) {
+        window.location.replace("/menu?category=dessert")
+      }
+
+      if (recognizedPhrase.includes('beverage') || recognizedPhrase.includes('drink')) {
+        window.location.replace("/menu?category=beverage")
+      }
+
+      if (recognizedPhrase.includes('menu')) {
         window.location.replace("/menu")
       }
 
-      if (recognizedPhrase.includes('tosignup') ||
+      if (recognizedPhrase.includes('signup') ||
         recognizedPhrase.includes('tothesignuppage') ||
         recognizedPhrase.includes('signuppage')) {
-        console.log("MENU DETECTED")
         window.location.replace("/signup")
       }
+
+      if (recognizedPhrase.includes('login') ||
+        recognizedPhrase.includes('totheloginpage') ||
+        recognizedPhrase.includes('loginpage')) {
+        window.location.replace("/login")
+      }
+
+      if (recognizedPhrase.includes('cart') ||
+        recognizedPhrase.includes('purchase')) {
+        dispatch(open())      
+        setIsActive(prev => false);
+      }
+
 
         if (recognizedPhrase.includes('backhome') ||
         recognizedPhrase.includes('tothehomepage') ||
         recognizedPhrase.includes('homepage')) {
-        console.log("MENU DETECTED")
         window.location.replace("/")
       }
 
@@ -133,11 +158,11 @@ const VoiceAssistantContents = () => {
   }
   useEffect(() => {
     setTimeout(() => {
-      if (!isActive) {
+      if (!isActive && !isSmallScreen) {
         setIsWelcomeActive(() => true)
       }
     }, 5000)
-  }, [])
+  }, [isSmallScreen])
   return (
   <>
       { !notSupported && (
@@ -201,7 +226,7 @@ const VoiceAssistant = () => {
   return (
   <>
       <div className="fixed bottom-0 right-0 z-[100]">
-      { isSmallScreen ? "" : <VoiceAssistantContents /> }
+        <VoiceAssistantContents isSmallScreen={isSmallScreen} />
       </div>
   </>
   )
