@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 import Footer from "../components/Footer/Footer";
 
 export const metadata = {
-  title: 'Game Day Grill',
+  title: 'Game Day Grill | Events',
   description: 'Game Day Grill, submission for 2023-2024 (435) BPA Web Design Competition',
 };
 
@@ -32,7 +32,6 @@ export default async function RootLayout({
         <Providers>
           <VoiceAssistant />
           {children}
-        <Footer />
         </Providers>
       </body>
     </html>

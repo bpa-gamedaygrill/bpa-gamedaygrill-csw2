@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
             <h1 className="text-2xl tracking-tight font-bold ">Game Day <span className="text-primary-red">Grill</span></h1> 
           </Link>
-            <p className="text-[0.92rem] text-neutral-500 w-full text-center md:text-left">This Is Some Subtitle Text</p>
+            <p className="text-[0.92rem] text-neutral-500 w-full text-center md:text-left">Fueling Your Culinary Cravings and Game Day Spirit.</p>
           </div>
 
           <div className="flex items-center sm:items-start gap-14 md:gap-20 lg:gap-5 w-full flex-col sm:flex-row  lg:max-w-[45%] justify-around mt-8 md:mt-0 md:justify-between">
