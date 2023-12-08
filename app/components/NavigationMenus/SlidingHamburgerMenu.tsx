@@ -3,7 +3,7 @@ import React from 'react'
 
 import { close } from "../../redux/features/hamburgerMenuSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { X, Info as InfoIcon, Calendar as CalendarIcon, Briefcase as BriefcaseIcon ,BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Gift as RewardsIcon, Briefcase } from "react-feather";
+import { X, Info as InfoIcon, Calendar as CalendarIcon, Code as BriefcaseIcon ,BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Inbox as RewardsIcon, Briefcase } from "react-feather";
 import Link from 'next/link';
 
 // Component imports 
@@ -37,21 +37,21 @@ const SlidingHamburgerMenu: React.FC = () => {
               />
               <p className=" text-sm text-neutral-600">About</p>
             </Link>
-                        <Link href="menu" className={`${slideLinkStyles}`}>
+                        <Link href="/menu" className={`${slideLinkStyles}`}>
               <MenuOrderingIcon
               color='rgb(82, 82, 82)'
                 size={20}
               />
               <p className="text-neutral-600 text-sm">Menu</p>
             </Link>
-            <Link href="events" className={`${slideLinkStyles}`}>
+            <Link href="/events" className={`${slideLinkStyles}`}>
               <EventsIcon
               color='rgb(82, 82, 82)'
                 size={20}
               />
               <p className="text-sm text-neutral-600">Events</p>
             </Link>
-            <Link href="reservations" className={`${slideLinkStyles}`}>
+            <Link href="/reservations" className={`${slideLinkStyles}`}>
               <CalendarIcon
               color='rgb(82, 82, 82)'
                 size={20}
@@ -60,20 +60,20 @@ const SlidingHamburgerMenu: React.FC = () => {
             </Link>
 
             <div className="w-full h-[1px] bg-neutral-300 my-5"/>
-            <Link href="careers" className={`${slideLinkStyles}`}>
+            <Link href="/teaminfo" className={`${slideLinkStyles}`}>
               <BriefcaseIcon
               color='rgb(82, 82, 82)'
               size={20}
               />
-              <p className="text-neutral-600 text-sm">Careers</p>
+              <p className="text-neutral-600 text-sm">Team Info</p>
             </Link>
 
-            <Link href="rewards" className={`${slideLinkStyles}`}>
+            <Link href="/#contact" className={`${slideLinkStyles}`}>
               <RewardsIcon
               color='rgb(82, 82, 82)'
                 size={20}
               />
-              <p className="text-neutral-600 text-sm">Rewards</p>
+              <p className="text-neutral-600 text-sm">Contact</p>
             </Link>
 
             <div className="w-full h-[1px] bg-neutral-200 mt-5"/>

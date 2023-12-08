@@ -78,6 +78,11 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
         window.location.replace("/menu")
       }
 
+      if (recognizedPhrase.includes('event')) {
+        window.location.replace("/events")
+      }
+
+
       if (recognizedPhrase.includes('signup') ||
         recognizedPhrase.includes('tothesignuppage') ||
         recognizedPhrase.includes('signuppage')) {
