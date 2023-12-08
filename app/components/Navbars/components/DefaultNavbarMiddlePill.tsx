@@ -32,10 +32,10 @@ const DefaultNavbarMiddlePill: React.FC<DefaultNavbarMiddlePillInterface> = ({ c
             </Link>
 
             <Link 
-            href="/rewards"
+            href="/#contact"
             className="bg-white hover:bg-neutral-100 px-4 py-2 rounded-full transition-all duration-150 ease-in-out"
             >
-              <p className="text-sm font-medium text-[#636363]">Rewards</p>
+              <p className="text-sm font-medium text-[#636363]">Contact</p>
             </Link>
 
             <Link 
