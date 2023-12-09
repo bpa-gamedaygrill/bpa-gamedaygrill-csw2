@@ -3,7 +3,7 @@ import React from "react";
 // Component Imports 
 import DefaultNavbar from "../components/Navbars/DefaultNavbar";
 import SignupFormWrapper from "./components/SignupFormWrapper";
-
+import { Toaster } from "react-hot-toast";
 import VoiceAssistant from "../../app/components/VoiceAssistant/VoiceAssistant";
 
 const Index = () => {
@@ -14,6 +14,7 @@ const Index = () => {
       hideMiddlePill
       bottomBorder
       />
+      <Toaster />
       <SignupFormWrapper />
     </>
   );

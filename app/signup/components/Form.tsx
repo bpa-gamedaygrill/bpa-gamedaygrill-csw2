@@ -3,6 +3,20 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { parseCookies, setCookie } from 'nookies';
 
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = ( message: string, isError?: boolean, isSuccess?: boolean ) => {
+  if (isError) {
+    toast.error(message)
+    return
+  } else if (isSuccess) {
+    toast.success(message)
+    return
+  }
+  toast(message)
+}
+
+
 const Form = () => {
   const cookies = parseCookies()
 
@@ -81,6 +95,11 @@ const Form = () => {
     })
     .catch(error => {
         console.error("An error has occured. Please check DB and Server logs.", error);
+        if (error.response.status === 409) {
+          notify("A user with that email already exists.", true)
+        } 
+        setIsLoading(() => false);
+
     })
     .finally(() => {
         // setIsLoading(() => false);
