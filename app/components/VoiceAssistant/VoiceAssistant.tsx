@@ -82,7 +82,6 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
         window.location.replace("/events")
       }
 
-
       if (recognizedPhrase.includes('signup') ||
         recognizedPhrase.includes('tothesignuppage') ||
         recognizedPhrase.includes('signuppage')) {
@@ -99,6 +98,10 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
         recognizedPhrase.includes('purchase')) {
         dispatch(open())      
         setIsActive(prev => false);
+      }
+
+      if (recognizedPhrase.includes('about')) {
+        window.location.replace('/about')
       }
 
 
