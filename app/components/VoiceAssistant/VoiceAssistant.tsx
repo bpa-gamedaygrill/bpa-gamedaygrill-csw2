@@ -58,6 +58,11 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       }
       console.log("after: ", recognizedPhrase)
 
+      if (recognizedPhrase.includes('checkout')) {
+        window.location.replace("/checkout")
+      }
+
+
       if (recognizedPhrase.includes('appetizer')) {
         window.location.replace("/menu?category=appetizer")
       }

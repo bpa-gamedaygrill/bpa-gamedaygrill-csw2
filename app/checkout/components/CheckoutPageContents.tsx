@@ -9,7 +9,7 @@ const CheckoutPageContents = () => {
   return (
     <>
       <main className="h-[100vh] max-h-[100vh] px-7 relative">
-        <div className="w-full mr-auto py-5 ml-auto h-full max-w-[1500px] flex items-center justify-center gap-3">
+        <div className="w-full flex-col md:flex-row mr-auto py-5 ml-auto h-full max-w-[1500px] flex items-center justify-center gap-3">
           <CheckoutForm />
           <CartPreview />
         </div>
