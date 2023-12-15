@@ -8,7 +8,7 @@ export async function POST(
 ) {
   try {
     const body = await req.json();  
-    const { itemName, itemDescription, type, itemPrice, imageUrl } = body; 
+    const { itemName, itemDescription, type, itemPrice, imageUrl, isVegetarian } = body; 
   
     if (!itemName) {
       return new NextResponse("Name is required", { status: 400 });
@@ -36,14 +36,35 @@ export async function POST(
       return new NextResponse("Image URL is required", { status: 400 });
     }
 
-    const newMenuItem = await db.menuItem.create({
-      data: {
+    let data: {
+      itemName: string;
+      itemPrice: string;
+      itemDescription: string;
+      imageUrl: string;
+      type: string;
+      isVegetarian?: boolean;
+    } = {
         itemName: itemName,
         itemPrice: itemPrice,
         itemDescription: itemDescription,
         imageUrl: imageUrl,
-        type: type
+        type: type,
+        isVegetarian: false
+    }
+
+    if (isVegetarian && isVegetarian==true) {
+      data = {
+          itemName: itemName,
+          itemPrice: itemPrice,
+          itemDescription: itemDescription,
+          imageUrl: imageUrl,
+          isVegetarian: true,
+          type: type
       }
+    }
+
+    const newMenuItem = await db.menuItem.create({
+      data: data
     })
 
     return NextResponse.json({ "data": newMenuItem }, { status: 201 }) 

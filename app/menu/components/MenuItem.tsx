@@ -48,9 +48,11 @@ const MenuItem: React.FC<MenuItemComponentInterface> = ({ itemData, usedForPrevi
           src={itemData.imageUrl}
           alt={usedForPreview ? "Invalid Image URL" : itemData.itemName}
           fill
-          className='rounded-lg menuitemimage object-cover hover:!blur-[0.5px] hover:!scale-[0.995] hover:!opacity-90 transition-all duration-100 cursor-pointer'
+          className='rounded-lg menuitemimage object-cover hover:!blur-[0.5px] hover:!scale-[0.995] hover:!opacity-90 transition-all duration-100'
           />
-        </div>
+          { (itemData.isVegetarian && itemData.isVegetarian==true) && <h1 className="absolute rounded-md z-50 top-2 left-2.5 px-2 py-1.5 bg-red-500 text-white text-sm opacity-70 pointer-events-none">Vegetarian</h1>
+ }
+                  </div>
         <h1 className="text-2xl text-center font-bold text-neutral-700">{ itemData.itemName }</h1>
         <p className="text-sm text-center trackng-tight text-neutral-500 mt-[-5px]">{ itemData.itemDescription }</p>
         { isItemAdded && <button disabled className="w-full px-4 py-2 bg-red-700 opacity-90 hover:bg-red-700 text-white text-sm tracking-tight rounded-full">Already Added</button>

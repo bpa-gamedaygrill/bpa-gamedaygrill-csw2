@@ -43,6 +43,7 @@ model MenuItem {
   itemPrice String
   imageUrl String
   type String
+  isVegetarian Boolean?
   purchases PurchaseItem[]
 }
 

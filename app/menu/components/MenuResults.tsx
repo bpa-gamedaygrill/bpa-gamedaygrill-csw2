@@ -13,6 +13,7 @@ export interface MenuItemInterface {
   itemDescription: string;
   itemName: string;
   itemPrice: string;
+  isVegetarian?: boolean;
 }
 
 const MenuResults = () => {
