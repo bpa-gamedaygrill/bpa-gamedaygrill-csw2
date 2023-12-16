@@ -1,0 +1,177 @@
+{
+   "items": [
+      {
+         "itemName": "Impossible Burger",
+         "itemDescription": "A mouth watery and savory burger, stuffed with impossible meat..",
+         "itemPrice": "13.99",
+         "type": "entree",
+         "imageUrl": "/images/impossible-burger-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+         "itemName": "GDG original pasta",
+         "itemDescription": "A GDG Certified classic dish. Boiled pasta marinated in the finest gooey cheese.",
+         "itemPrice": "9.99",
+         "type": "entree",
+         "imageUrl": "/images/gdg-original-pasta-menuitem.jpg",
+         "isVegetarian": false
+      },
+      {
+         "itemName": "Patês du Meatboulette",
+         "itemDescription": "Classical french pasta with american meatball fusion. A fancy and affordable choice.",
+         "itemPrice": "18.99",
+         "type": "entree",
+         "imageUrl": "/images/pates-meatball-menuitem.jpg",
+         "isVegetarian": false
+      },
+      {
+         "itemName": "Grilled veggie pasta",
+         "itemDescription": "Pasta pasta pasta! This time with grilled vegetables and heavenly cheese.",
+         "itemPrice": "13.99",
+         "type": "entree",
+         "isVegetarian": true,  
+         "imageUrl": "/images/grilled-veggie-pasta-menuitem.jpg"
+      }, 
+      {
+      
+         "itemName": "Grilled Veg. Pasta Salad",
+         "itemDescription": "A GDG take on a classic summer dish featuring smoky vegetables packed with plenty of flavor",
+         "itemPrice": "7.99",
+         "type": "entree",
+         "imageUrl": "/images/veg-pasta-salad-menuitem.jpg",
+         "isVegetarian": true 
+      }, 
+      {
+      
+         "itemName": "Tomato Basil Pasta",
+         "itemDescription": "A classic light summery tomato basil pasta.",
+         "itemPrice": "10.99",
+         "type": "entree",
+         "imageUrl": "/images/tomato-basil-chicken-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+
+         "itemName": "Classic Hamburger",
+         "itemDescription": "A GDG classic, our grilled hamburger is sure to be the best you’ve ever eaten.",
+         "itemPrice": "8.99",
+         "type": "entree",
+         "imageUrl": "/images/classic-grilled-hamburger-menuitem.jpg"
+      }, 
+      {
+      
+         "itemName": "Delite Cheeseburger",
+         "itemDescription": "A juicy, flavor-packed burger with garden-fresh veggies.",
+         "itemPrice": "7.99",
+         "type": "entree",
+         "imageUrl": "/images/delite-cheeseburger-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Grilled Chkn. Sandwich",
+         "itemDescription": "Juicy grilled chicken served on a bun with melty provolone cheese.",
+         "itemPrice": "7.99",
+         "type": "entree",
+         "imageUrl": "/images/grilled-chicken-sandwich-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Spicy Chicken Sandwich",
+         "itemDescription": "Juicy grilled chicken marinated in GDG special sauce.",
+         "itemPrice": "8.99",
+         "type": "entree",
+         "imageUrl": "/images/spicy-chicken-sandwich-menuitem.jpg"
+      },
+      
+      {
+      
+         "itemName": "BBQ Chicken Sandwich",
+         "itemDescription": "A smoky take on the classic chicken sandwich. A sacory delight in every bite.",
+         "itemPrice": "8.99",
+         "type": "entree",
+         "imageUrl": "/images/bbq-chicken-sandwich-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Rosemary-Garlic burgers with Gruyere",
+         "itemDescription": "Aromatic rosemary paired with the smoky meltiness of Gruyere cheese, a flavor packed adventure.",
+         "itemPrice": "10.99",
+         "type": "entree",
+         "imageUrl": "/images/rosemary-burger-menuitem.jpg",
+         "isVegetarian": true
+      }, 
+      
+      {
+      
+         "itemName": "Beer-Can Egg Sandwiches",
+         "itemDescription": "A brew-infused twist on a classic craving. This sandwich includes layers of flavor, a guaranteed win.",
+         "itemPrice": "9.99",
+         "type": "entree",
+         "imageUrl": "/images/beercan-egg-sandwich-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Gourmet Grilled Steak",
+         "itemDescription": "A masterpiece of flavors and spices, grilled to perfection on a juicy steak sourced from the best of the best.",
+         "itemPrice": "23.99",
+         "type": "entree",
+         "imageUrl": "/images/gourmet-grilled-steak-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Classic BBQ Ribs",
+         "itemDescription": "GDG Classic BBQ Ribs are guaranteed to be a hit with their tangy, smoky flavor, grilled to perfection.",
+         "itemPrice": "12.99",
+         "type": "entree",
+         "imageUrl": "/images/classic-bbq-ribs-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Honey Soy Pork Chops",
+         "itemDescription": "Sweet and savory pork chops, topped off with a flavorful caramelized glaze.",
+         "itemPrice": "16.99",
+         "type": "entree",
+         "imageUrl": "/images/honey-soy-pork-chops-menuitem.jpg"
+      }, 
+      
+      {
+      
+         "itemName": "Cali-Style Grilled Fajitas",
+         "itemDescription": "Vibrant Cali flavors paired with perfectly grilled and seasoned fajitas",
+         "itemPrice": "12.99",
+         "type": "entree",
+         "imageUrl": "/images/cali-fajitas-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+         "itemName": "Cheesy Fries",
+         "itemDescription": "Freshly made fries generously doused in molten hot cheese.",
+         "itemPrice": "8.99",
+         "type": "appetizer",
+         "imageUrl": "/images/cheese-fries-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+         "itemName": "Champ Cheescake",
+         "itemDescription": "Velvety smooth, delicious cheescake to finish your meal.",
+         "itemPrice": "10.99",
+         "type": "dessert",
+         "imageUrl": "/images/champions-cheesecake-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+         "itemName": "Canadian Mix",
+         "itemDescription": "Refreshing sweet-n-sour drink, inspired by ginger ale.",
+         "itemPrice": "5.99",
+         "type": "beverage",
+         "imageUrl": "/images/canadian-margarita-menuitem.jpg",
+         "isVegetarian": true
+      }
+   ]
+}

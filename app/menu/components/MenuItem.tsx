@@ -50,7 +50,7 @@ const MenuItem: React.FC<MenuItemComponentInterface> = ({ itemData, usedForPrevi
           fill
           className='rounded-lg menuitemimage object-cover hover:!blur-[0.5px] hover:!scale-[0.995] hover:!opacity-90 transition-all duration-100'
           />
-          { (itemData.isVegetarian && itemData.isVegetarian==true) && <h1 className="absolute rounded-md z-50 top-2 left-2.5 px-2 py-1.5 bg-red-500 text-white text-sm opacity-70 pointer-events-none">Vegetarian</h1>
+          { (itemData.isVegetarian && itemData.isVegetarian==true) && <h1 className="absolute rounded-md z-10 top-2 left-2.5 px-2 py-1.5 bg-red-500 text-white text-sm opacity-70 pointer-events-none">Vegetarian</h1>
  }
                   </div>
         <h1 className="text-2xl text-center font-bold text-neutral-700">{ itemData.itemName }</h1>
