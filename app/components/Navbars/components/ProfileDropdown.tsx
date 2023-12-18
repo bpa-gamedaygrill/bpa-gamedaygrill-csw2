@@ -2,17 +2,15 @@
 import React from 'react'
 import Link from 'next/link'
 import { User, ChevronDown } from 'react-feather'
-import { destroyCookie } from 'nookies';
+import deleteUserCookies from '../../../../libs/actions/cookie/deleteUserCookies';
 
 interface ProfileDropdownInterface {
   name: string;
 }
 
 const ProfileDropdown: React.FC<ProfileDropdownInterface> = ({ name }) => {
-  const logOut = () => {
-    destroyCookie(null, '__obj1');
-    destroyCookie(null, '__obj2');
-    destroyCookie(null, 'token');
+  const logOut = async() => {
+    await deleteUserCookies()
     window.location.reload();
   }
   return (
