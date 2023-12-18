@@ -19,6 +19,7 @@ model User {
   deliveryAddresses DeliveryAddress[]
   rewards Reward[]
   purchases Purchase[]
+  dateCreated DateTime @default(now())
 }
 
 model DeliveryAddress {
