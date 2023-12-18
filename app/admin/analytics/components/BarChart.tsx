@@ -19,6 +19,8 @@ const BarChart: React.FC<BarChartInterface> = ({ chartData }) => {
         text: 'New Users by Day',
       },
     },
+    backgroundColor: "#de2f2fcc",
+    maintainAspectRatio: true,
     scales: {
       y: {
         display: true,
