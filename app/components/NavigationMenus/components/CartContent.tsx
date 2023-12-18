@@ -58,7 +58,7 @@ const CartContent: React.FC<CartContentInterface> = ({ usedInCheckout }) => {
 
       {usedInCheckout ? (
         <Link href="menu" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
-          <p className="text-white font-semibold text-sm">Back to Menu</p>
+          <p className="text-white font-semibold text-sm">Continue Shopping</p>
         </Link>
       ) : (
         cartItems && cartItems.length > 0 ? (

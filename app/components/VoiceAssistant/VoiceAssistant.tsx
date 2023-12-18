@@ -7,6 +7,9 @@ import { Mic, X } from 'react-feather';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { close, open } from "../../redux/features/cartModalSlice";
 
+import { parseCookies } from 'nookies';
+
+import deleteUserCookies from '../../../libs/actions/cookie/deleteUserCookies';
 
 interface SpeechRecognitionEvent extends Event {
   results: SpeechRecognitionResultList;
@@ -25,6 +28,16 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
   const [transcription, setTranscription] = useState<string>("");
   const [popupDisabled, setPopupDisabled] = useState<boolean>(false);
   const [notSupported, setNotSupported] = useState<boolean>(true);
+
+  const cookies = parseCookies()
+
+  const logOut = async() => {
+    if (cookies.token) {
+      await deleteUserCookies()
+      window.location.reload();
+    }
+  }
+
 
   const handleSpeechRecognition = (event: SpeechRecognitionEvent) => {
     const recognizedResults = Array.from(event.results)
@@ -66,6 +79,11 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       if (recognizedPhrase.includes('appetizer')) {
         window.location.replace("/menu?category=appetizer")
       }
+
+      if (recognizedPhrase.includes('logout')) {
+        logOut();
+      }
+
 
       if (recognizedPhrase.includes('entree')) {
         window.location.replace("/menu?category=entree")

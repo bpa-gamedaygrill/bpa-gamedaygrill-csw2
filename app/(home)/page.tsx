@@ -12,7 +12,6 @@ import RewardsModal from "../components/Modals/RewardsModal/RewardsModal";
 const Index = () => {
   return (
     <>
-      <RewardsModal />
       <DefaultNavbar />
       <HeroSection />
       <PopularItemsSection />

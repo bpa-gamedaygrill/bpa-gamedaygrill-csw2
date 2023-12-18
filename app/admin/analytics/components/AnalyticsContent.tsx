@@ -9,7 +9,7 @@ const AnalyticsContent = () => {
         <section className="flex flex-col w-full md:max-w-[65%]">
           <AnalyticsCharts />
         </section>
-        <div className="w-full h-full flex flex-col md:max-w-[17.5%]">
+        <div className="w-full h-full px-4 py-5 border-[1px] border-neutral-100 rounded-lg flex flex-col md:max-w-[17.5%]">
 
         </div>
         <div className="w-full h-full flex flex-col md:max-w-[17.5%]">
