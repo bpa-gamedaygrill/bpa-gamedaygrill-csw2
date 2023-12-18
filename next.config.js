@@ -12,9 +12,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  experimental: {
-    serverActions: false
-  },
   images: {
     formats: ['image/avif', 'image/webp']
   }

@@ -5,8 +5,8 @@ import AnalyticsCharts from './AnalyticsCharts'
 const AnalyticsContent = () => {
   return (
   <>
-      <main className="w-full bg-red-500 flex items-start justify-between gap-4">
-        <section className="flex flex-col w-full max-w-[65%] bg-blue-500">
+      <main className="w-full flex items-start justify-between gap-4">
+        <section className="flex flex-col w-full max-w-[65%]">
           <AnalyticsCharts />
         </section>
         <div className="w-full h-full flex flex-col max-w-[17.5%]">
