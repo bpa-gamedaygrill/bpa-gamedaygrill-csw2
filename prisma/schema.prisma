@@ -16,17 +16,9 @@ model User {
   fullName String
   email String
   hashedPassword String
-  deliveryAddresses DeliveryAddress[]
   rewards Reward[]
-  purchases Purchase[]
+  orders Order[]
   dateCreated DateTime @default(now())
-}
-
-model DeliveryAddress {
-  id String @id @default(cuid()) 
-  address String
-  userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Event {
@@ -45,23 +37,15 @@ model MenuItem {
   imageUrl String
   type String
   isVegetarian Boolean?
-  purchases PurchaseItem[]
 }
 
-model Purchase {
+model Order {
   id String @id @default(cuid())
-  userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  purchaseItems PurchaseItem[]
-}
-
-model PurchaseItem {
-  id String @id @default(cuid())
-  menuItemId String
-  menuItem MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
-  quantity Int
-  purchaseId String
-  purchase Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  userId String?
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  purchaseDate DateTime @default(now())
+  totalCost String
+  purchaseFullName String
 }
 
 model Reward {
