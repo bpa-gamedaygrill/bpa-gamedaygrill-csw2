@@ -13,7 +13,6 @@ const MenuEditContent = async() => {
   let isError: boolean = false;
   try {
     menuItems = await db.menuItem.findMany();
-    console.log(`MENU ITEMS FROM EDIT PAGE: ${JSON.stringify(menuItems)}`)
   } catch (e) {
     console.log("An Error Occured", e)
     isError = true;
