@@ -2,6 +2,7 @@ import React from 'react'
 
 import Image from "next/image";
 import MenuEditInteractionDiv from './MenuEditInteractionDiv';
+import { MenuCategoryFilterType } from '../../../redux/features/menuCategoryFilterSlice';
 
 interface MenuEditItemInterface {
   imageUrl: string;
@@ -9,13 +10,23 @@ interface MenuEditItemInterface {
   itemDesc: string;
   itemPrice: string;
   itemId: string;
+  itemType: MenuCategoryFilterType; 
 }
 
-const MenuEditItem: React.FC<MenuEditItemInterface> = async({ imageUrl, itemName, itemDesc, itemPrice, itemId }) => {
+const MenuEditItem: React.FC<MenuEditItemInterface> = async({ imageUrl, itemName, itemDesc, itemPrice, itemId, itemType }) => {
   return (
   <>
       <div className="w-full py-5 px-7 flex-col bg-white group rounded-lg border-[1px] gap-7 border-neutral-300 flex items-start justify-between">
-        <MenuEditInteractionDiv itemId={itemId} />
+        <MenuEditInteractionDiv  itemData = {
+          {
+            itemId: itemId,
+            itemDesc: itemDesc,
+            itemName: itemName,
+            itemPrice: itemPrice,
+            imageUrl: imageUrl,
+            itemType: itemType
+          }
+        } />
         <div className="w-full flex-col lg:flex-row bg-white group rounded-lg  gap-7 flex items-center justify-between">
           <div className="relative w-full h-full min-h-[125px] lg:max-w-[175px] max-h-[125px]">
             <Image 

@@ -33,7 +33,7 @@ const MenuEditContent = async() => {
       {
       menuItems ? menuItems.map((item: any) => (
         <>
-            <MenuEditItem key={item.id} itemId={item.id} imageUrl={item.imageUrl} itemName={item.itemName} itemDesc={item.itemDescription as string} itemPrice={item.itemPrice} />
+            <MenuEditItem key={item.id} itemId={item.id} imageUrl={item.imageUrl} itemName={item.itemName} itemDesc={item.itemDescription as string} itemPrice={item.itemPrice} itemType={item.type} />
         </>
       )) : isError ? "An Error Occured" : "No Menu Items Found"
       }

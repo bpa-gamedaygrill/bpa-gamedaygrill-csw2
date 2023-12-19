@@ -1,23 +1,37 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react'
-
+import MenuEditModifyItem from './MenuEditModifyItem';
 import { Trash2, Edit } from 'react-feather';  
+import { MenuCategoryFilterType } from '../../../redux/features/menuCategoryFilterSlice';
 
-interface MenuEditInteractionDivInterface {
-  itemId: string;
+
+export interface MenuEditInteractionDivInterface {
+  itemData: {
+    itemId: string;
+    itemName: string;
+    itemDesc: string;
+    itemPrice: string;
+    imageUrl: string;
+    itemType: MenuCategoryFilterType;
+  }
 }
 
 import axios from 'axios';
 
-const MenuEditInteractionDiv: React.FC<MenuEditInteractionDivInterface> = ({ itemId }) => {
+const MenuEditInteractionDiv: React.FC<MenuEditInteractionDivInterface> = ({  itemData }) => {
   const [delModalActive, setDelModalActive] = useState<boolean>(false);
+  const [editModalActive, setEditModalActive] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+
+  const editModalActiveFunc = (value: boolean) => {
+  setEditModalActive(prev => value);
+}
 
   const deleteItem = () => {
     setIsLoading(true);
     axios.post("/api/menu/deleteitem", {
-      itemId: itemId
+      itemId: itemData.itemId
     })
     .then(response => {
         console.log(`SUCCESS: ${response}`);
@@ -35,6 +49,7 @@ const MenuEditInteractionDiv: React.FC<MenuEditInteractionDivInterface> = ({ ite
 
   return (
   <>
+      <MenuEditModifyItem itemData={itemData} modalActive={editModalActive} setModalActive={editModalActiveFunc} />
       <div className={`fixed w-full h-full top-0 left-0 z-[200] bg-black/10 ${delModalActive ? "opacity-100 pointer-events-auto backdrop-blur-sm" : "opacity-0 pointer-events-none"} transition-all duration-300 flex items-center justify-center p-2`}>
         <div className="w-full h-fit bg-white max-w-[350px] max-h-[200px]  px-9 py-7 overflow-y-auto minimal-scrollbar rounded-md">
           <p className="text-sm opacity-70 font-medium text-center">Are you sure? This action cannot be undone.</p>
@@ -59,6 +74,7 @@ const MenuEditInteractionDiv: React.FC<MenuEditInteractionDivInterface> = ({ ite
           <Edit
           size={18}
           opacity={0.4}
+          onClick={() => setEditModalActive(prev => true)}
           />
         </button>
       </div>
