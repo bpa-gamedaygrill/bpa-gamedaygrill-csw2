@@ -15,6 +15,9 @@ const SlidingHamburgerMenu: React.FC = () => {
 
   const slideLinkStyles = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
 
+  const closeHamburger = () => {
+    dispatch(close())
+  }
   return (
     <>
       <section className={`lg:hidden top-0 left-0 fixed w-full h-full bg-black/40 backdrop-blur-[2px] z-[100] ${ menuState===false && "pointer-events-none opacity-0 delay-300 transition-all duration-100 ease-in-out" }`}>
@@ -30,28 +33,28 @@ const SlidingHamburgerMenu: React.FC = () => {
           </div>
 
           <section className="w-full py-5 mt-7 flex flex-col items-start gap-2">
-            <Link href="about" className={`${slideLinkStyles}`}>
+            <Link href="about" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <InfoIcon 
               color='rgb(82, 82, 82)'
                 size={20}
               />
               <p className=" text-sm text-neutral-600">About</p>
             </Link>
-                        <Link href="/menu" className={`${slideLinkStyles}`}>
+                        <Link href="/menu" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <MenuOrderingIcon
               color='rgb(82, 82, 82)'
                 size={20}
               />
               <p className="text-neutral-600 text-sm">Menu</p>
             </Link>
-            <Link href="/events" className={`${slideLinkStyles}`}>
+            <Link href="/events" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <EventsIcon
               color='rgb(82, 82, 82)'
                 size={20}
               />
               <p className="text-sm text-neutral-600">Events</p>
             </Link>
-            <Link href="/reservations" className={`${slideLinkStyles}`}>
+            <Link href="/reservations" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <CalendarIcon
               color='rgb(82, 82, 82)'
                 size={20}
@@ -60,7 +63,7 @@ const SlidingHamburgerMenu: React.FC = () => {
             </Link>
 
             <div className="w-full h-[1px] bg-neutral-300 my-5"/>
-            <Link href="/teaminfo" className={`${slideLinkStyles}`}>
+            <Link href="/teaminfo" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <BriefcaseIcon
               color='rgb(82, 82, 82)'
               size={20}
@@ -68,7 +71,7 @@ const SlidingHamburgerMenu: React.FC = () => {
               <p className="text-neutral-600 text-sm">Team Info</p>
             </Link>
 
-            <Link href="/#contact" className={`${slideLinkStyles}`}>
+            <Link href="/#contact" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <RewardsIcon
               color='rgb(82, 82, 82)'
                 size={20}
@@ -78,11 +81,11 @@ const SlidingHamburgerMenu: React.FC = () => {
 
             <div className="w-full h-[1px] bg-neutral-200 mt-5"/>
 
-            <Link href="signup" className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md mt-7">
+            <Link href="signup" className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md mt-7" onClick={closeHamburger}>
               <p className="text-neutral-600 text-sm font-semibold">Sign Up</p>
             </Link>
 
-            <Link href="menu" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
+            <Link href="menu" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md " onClick={closeHamburger}>
               <p className="text-white font-semibold text-sm">Order Now</p>
             </Link>
           </section>

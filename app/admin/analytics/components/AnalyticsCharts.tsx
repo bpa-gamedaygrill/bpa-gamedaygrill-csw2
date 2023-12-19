@@ -11,6 +11,7 @@ interface TransformedData {
 }
 const AnalyticsCharts = () => {
   const [usersDataset, setUsersDataset] = useState<{ id: string; fullName: string; email: string; hashedPassword: string; dateCreated: Date; }[]>();
+  const [ordersDataset, setOrdersDataset] = useState<{ id: string; fullName: string; email: string; hashedPassword: string; dateCreated: Date; }[]>()
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchTimeline, setSearchTimeline] = useState<"alltime" | "lastweek">("lastweek");
   const updateUsersDatasetWithAlltime = async() => {
@@ -27,6 +28,22 @@ const AnalyticsCharts = () => {
     setUsersDataset(userData);
     setIsLoading(prev => false);
   }
+
+  const updateOrdersDatasetWithAlltime = async() => {
+    setIsLoading(prev => true)
+    let userData = await fetchAllTimeUsers()
+    userData = userData.sort(function(a,b){return a.dateCreated.getTime() - b.dateCreated.getTime()})
+    setOrdersDataset(userData);
+    setIsLoading(prev => false);
+  }
+  const updateOrdersDatasetWithLastweek = async() => {
+    setIsLoading(prev => true)
+    let userData = await fetchLastWeek()
+    userData = userData.sort(function(a,b){return a.dateCreated.getTime() - b.dateCreated.getTime()})
+    setUsersDataset(userData);
+    setIsLoading(prev => false);
+  }
+
 
   useEffect(() => {
     if (searchTimeline=="alltime") {
@@ -95,7 +112,7 @@ const AnalyticsCharts = () => {
 
       : 
         <div className="p-5 border-[1px] border-neutral-100 rounded-lg">
-         <BarChart chartData={chartData} />
+         <BarChart chartData={chartData} titleText='New Users by Day' />
         </div>
        }
         </>

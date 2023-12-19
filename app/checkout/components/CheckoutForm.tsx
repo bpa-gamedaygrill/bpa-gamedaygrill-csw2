@@ -59,23 +59,46 @@ const CheckoutForm = () => {
       notify("CCV is required", true)
       return
     }
-    axios.post('/api/order/new', {
-      fullName: fullname,
-      totalPrice: (cartItems?.reduce((total, item) => total + parseFloat(item.itemPrice), 0))?.toFixed(2)
-    })
-    .then(async(response) => {
-     console.log(response);
-      notify("Success", false, true)
-      setTimeout(async() => {
-        await deleteAllItems();
-        window.location.replace('/')
-      }, 1200)
-    })
-    .catch((error) => {
-        notify('An error occured', true)
-        console.log(error)
-        setIsLoading(prev => false)
+    if (cookies.__obj2) {
+      axios.post('/api/order/new', {
+        fullName: fullname,
+        userId: cookies.__obj2 as string,
+        totalPrice: (cartItems?.reduce((total, item) => total + parseFloat(item.itemPrice), 0))?.toFixed(2)
       })
+      .then(async(response) => {
+       console.log(response);
+        notify("Success", false, true)
+        setTimeout(async() => {
+          await deleteAllItems();
+          window.location.replace('/')
+        }, 1200)
+      })
+      .catch((error) => {
+          notify('An error occured', true)
+          console.log(error)
+          setIsLoading(prev => false)
+      })
+
+    }
+    else {
+      axios.post('/api/order/new', {
+        fullName: fullname,
+        totalPrice: (cartItems?.reduce((total, item) => total + parseFloat(item.itemPrice), 0))?.toFixed(2)
+      })
+      .then(async(response) => {
+       console.log(response);
+        notify("Success", false, true)
+        setTimeout(async() => {
+          await deleteAllItems();
+          window.location.replace('/')
+        }, 1200)
+      })
+      .catch((error) => {
+          notify('An error occured', true)
+          console.log(error)
+          setIsLoading(prev => false)
+      })
+    }
   }
 
   return (

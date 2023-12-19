@@ -5,9 +5,10 @@ import "chart.js/auto";
 
 interface BarChartInterface {
   chartData: any;
+  titleText: string;
 }
 
-const BarChart: React.FC<BarChartInterface> = ({ chartData }) => {
+const BarChart: React.FC<BarChartInterface> = ({ chartData, titleText }) => {
   const options = {
     responsive: true,
     plugins: {
@@ -16,7 +17,7 @@ const BarChart: React.FC<BarChartInterface> = ({ chartData }) => {
       },
       title: {
         display: true,
-        text: 'New Users by Day',
+        text: titleText as string,
       },
     },
     backgroundColor: "#de2f2fcc",
