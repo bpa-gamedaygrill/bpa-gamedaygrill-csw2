@@ -172,6 +172,103 @@
          "type": "beverage",
          "imageUrl": "/images/canadian-margarita-menuitem.jpg",
          "isVegetarian": true
+      },
+      {
+         "itemName": "Classic GDG Hot Dog ",
+         "itemDescription": "Grilled hot dog, soft bun, paired with mustard, ketchup, onions, and relish",
+         "itemPrice": "9.99",
+         "type": "appetizer",
+         "imageUrl": "/images/hot-dog-menuitem.jpg"   
+      },
+      {
+         "itemName": "Grilled Corn on The Cob",
+         "itemDescription": "Tasty grilled corn, buttered and drizzled with paprika and zesty lemon juice",
+         "itemPrice": "5.99",
+         "type": "appetizer",
+         "imageUrl": "/images/corn-menuitem.jpg",
+         "isVegetarian": true
+      },
+      
+      {
+         "itemName": "GDG Wings",
+         "itemDescription": "Golden brown wings covered in our signature buffalo sauce.",
+         "itemPrice": "$8.99",
+         "type": "appetizer",
+         "imageUrl": "/images/gdg-wings-menuitem.jpg"
+      },
+      
+      {
+        "itemName": "Mozzarella Platter",
+         "itemDescription": "Cheese sticks breaded in secret spices and fried to golden brown perfection",
+         "itemPrice": "$10.99",
+         "type": "appetizer",
+         "imageUrl": "/images/cheese-sticks-menuitem.jpg"
+      },
+      
+      {
+      
+         "itemName": "GDG Sliders",
+         "itemDescription": "Bite-sized mini burgers, perfect for sharing",
+         "itemPrice": "$9.99",
+         "type": "appetizer",
+         "imageUrl": "/images/sliders-menuitem.jpg"   
+      },
+      
+      
+      {
+      
+         "itemName": "Grilled Veggies",
+         "itemDescription": "Charred, flavorful, vibrant, smoky, grilled vegetable medley",
+         "itemPrice": "3.99",
+         "type": "appetizer",
+         "imageUrl": "/images/veggies-menuitem.jpg",
+         "isVegetarian": true
+      },
+      
+      
+      {
+      
+         "itemName": "GDG Signature Nachos",
+         "itemDescription": "Crispy tortilla chips with melted cheese and toppings",
+         "itemPrice": "8.99",
+         "type": "appetizer",
+         "imageUrl": "/images/nachos-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+      
+         "itemName": " Chicken Tenders",
+         "itemDescription": "Crispy, golden chicken strips, perfect for dipping",
+         "itemPrice": "6.99",
+         "type": "appetizer",
+         "imageUrl": "/images/tenders-menuitem.jpg"   
+      },
+      
+      {
+      
+         "itemName": "GDG Onion Rings",
+         "itemDescription": "Crispy, golden rings of battered and fried onions",
+         "itemPrice": "6.99",
+         "type": "appetizer",
+         "imageUrl": "/images/landing_appetizer_preview.png",
+         "isVegetarian": true
+      },
+      {
+         "itemName": "Cauliflower Bites",
+         "itemDescription": "Crispy, golden cauliflower bites with flavorful coating",
+         "itemPrice": "8.99",
+         "type": "appetizer",
+         "imageUrl": "/images/cauliflower-menuitem.jpg",
+         "isVegetarian": true
+      },
+      {
+      
+         "itemName": "Mini Spring Rolls",
+         "itemDescription": "Tiny, crispy rolls with savory vegetable filling",
+         "itemPrice": "5.99",
+         "type": "appetizer",
+         "imageUrl": "/images/spring-roll-menuitem.jpg",   
+         "isVegetarian": true
       }
    ]
 }

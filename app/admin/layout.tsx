@@ -5,7 +5,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createSecureUrl } from "../../libs/utils/secureUrl/createSecureUrl";
 
-// Component Imports 
 export const metadata = {
   title: 'Game Day Grill',
   description: 'Game Day Grill, submission for 2023-2024 (435) BPA Web Design Competition',
@@ -15,6 +14,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 import { headers } from 'next/headers';
 import DefaultNavbar from "../../app/components/Navbars/DefaultNavbar";
+
+// Component Imports 
+import AdminSidebar from "./components/AdminSidebar";
 
 
 export default async function RootLayout({
@@ -33,8 +35,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <DefaultNavbar />
-        {children}
+          <main className="flex min-h-[100vh] h-full">
+            <AdminSidebar />
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

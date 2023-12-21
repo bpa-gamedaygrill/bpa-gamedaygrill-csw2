@@ -70,11 +70,12 @@ const MenuEditInteractionDiv: React.FC<MenuEditInteractionDivInterface> = ({  it
           opacity={0.4}
           />
         </button>
-        <button className="p-2 border-[1.5px] border-neutral-300 rounded-md hover:bg-neutral-50">
+        <button 
+          onClick={() => setEditModalActive(prev => true)}
+          className="p-2 border-[1.5px] border-neutral-300 rounded-md hover:bg-neutral-50">
           <Edit
           size={18}
           opacity={0.4}
-          onClick={() => setEditModalActive(prev => true)}
           />
         </button>
       </div>

@@ -10,7 +10,7 @@ import { createSecureUrl } from '../../libs/utils/secureUrl/createSecureUrl';
 const Admin = async() => {
   return (
   <>
-      <div className="mt-44 w-full min-h-[50vh] px-7">
+      <div className="mt-24 ml-12 w-full min-h-[50vh] px-7">
         <BaseAdminWrapper />
       </div>
   </>

@@ -19,7 +19,9 @@ const MenuEditContent = async() => {
   }
   return (
   <>
-      <section className="w-full bg-white border-[1px] border-neutral-300 py-6 px-8 rounded-lg">
+      <main className="w-[100vw] relative min-h-[100vh] h-full flex items-start flex-row justify-start gap-4  max-h-[100vh] overflow-y-auto p-4">
+
+      <section className="w-full mt-8 bg-white border-[1px] border-neutral-300 py-6 px-8 rounded-lg">
         <div className="flex w-full flex-wrap gap-5 md:flex-row md:gap-3 flex-col items-center justify-between">
           <h1 className="text-2xl font-semibold tracking-tight">Menu Edit</h1>
           <div className="flex items-center justify-center gap-3">
@@ -39,6 +41,7 @@ const MenuEditContent = async() => {
       }
         </div>
       </section>
+      </main>
   </>
   )
 }

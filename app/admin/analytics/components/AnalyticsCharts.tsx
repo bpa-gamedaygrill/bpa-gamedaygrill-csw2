@@ -130,10 +130,11 @@ const AnalyticsCharts = () => {
   }
   return (
   <>
+      <div className="flex flex-col gap-4 h-full items-start min-w-[50%] relative">
       <SelectDropdown 
         selectPrompt='Last Week'
         valueUpdateFunction={updateSearchTimeline}
-        customParentStyles='z-20 w-fit  mb-6'
+        customParentStyles='z-20 w-fit mb-4 mt-8'
         options={
             [
               {
@@ -148,7 +149,7 @@ const AnalyticsCharts = () => {
           }
       />
       { isLoading ? 
-      <div className={`animate-pulse h-[395px] rounded-lg  bg-neutral-50 sm:flex-row gap-0 sm:gap-5 relative w-full flex items-center justify-center`}>
+      <div className={`animate-pulse h-[395px] rounded-lg bg-neutral-50 sm:flex-row gap-0 sm:gap-5 relative w-full flex items-center justify-center`}>
             <div role="status">
               <svg aria-hidden="true" className="w-6 h-6 text-neutral-200 animate-spin  fill-primary-red" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -161,15 +162,17 @@ const AnalyticsCharts = () => {
 
       : 
         <>
-        <div className="p-5 border-[1px] border-neutral-100 rounded-lg">
+        <div className="p-2 border-[1px] border-neutral-100 rounded-lg w-full">
          <BarChart chartData={chartData} titleText='New Users by Day' />
         </div>
         </>
        }
+       </div>
+      <div className="flex flex-col gap-4 items-start h-full min-w-[50%]">
        <SelectDropdown 
         selectPrompt='Last Week'
         valueUpdateFunction={updateSearchTimelineTwo}
-        customParentStyles='z-20 w-fit  mb-6 mt-12'
+        customParentStyles='z-20 w-fit mb-4 mt-8'
         options={
             [
               {
@@ -197,11 +200,12 @@ const AnalyticsCharts = () => {
 
       : 
         <>
-        <div className="p-5 border-[1px] border-neutral-100 rounded-lg">
+        <div className="p-2 w-full border-[1px] border-neutral-100 rounded-lg">
          <BarChart chartData={chartDataTwo} titleText='New Orders by Day' />
         </div>
         </>
        }
+       </div>
 
 
 

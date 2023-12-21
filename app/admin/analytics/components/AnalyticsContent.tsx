@@ -5,16 +5,12 @@ import AnalyticsCharts from './AnalyticsCharts'
 const AnalyticsContent = () => {
   return (
   <>
-      <main className="w-full flex items-start flex-col md:flex-row justify-between gap-4">
-        <section className="flex flex-col w-full md:max-w-[65%]">
+      <main className="w-[100vw]  relative min-h-[100vh] h-full flex items-start flex-row justify-start gap-4  max-h-[100vh] overflow-y-auto">
+        <section className="flex relative items-center justify-center gap-5 flex-row px-12 w-full py-5">
           <AnalyticsCharts />
         </section>
-        <div className="w-full h-full px-4 py-5 border-[1px] border-neutral-100 rounded-lg flex flex-col md:max-w-[17.5%]">
 
-        </div>
-        <div className="w-full h-full flex flex-col md:max-w-[17.5%]">
 
-        </div>
       </main>
   </>
   )
