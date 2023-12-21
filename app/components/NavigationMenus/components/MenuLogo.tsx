@@ -1,12 +1,11 @@
 import Image from "next/image";
 import React from 'react'
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const MenuLogo = () => {
-  const router = useRouter();
   return (
     <>
-      <div className="flex items-center justify-center gap-4 cursor-pointer" onClick={() => router.push('/')}>
+      <Link href="/" className="flex items-center justify-center gap-4 cursor-pointer">
         <div className="w-[45px] h-[45px] relative">
           <Image 
             src="/images/logo-big.svg"
@@ -14,7 +13,7 @@ const MenuLogo = () => {
             layout="fill"
           />
         </div>
-      </div>
+      </Link>
     </>
   )
 }
