@@ -24,13 +24,9 @@ export default async function RootLayout({
 
   console.log(cookieStore.get('ownerverified')==undefined)
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
+    <>
         { cookieStore.get('ownerverified')==undefined && <ProtectRoute cred={process.env.ADMIN_CREDENTIAL as string} /> }
         {children}
-        </Providers>
-      </body>
-    </html>
+        </>
   );
 }

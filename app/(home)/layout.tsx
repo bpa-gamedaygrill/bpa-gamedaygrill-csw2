@@ -17,8 +17,6 @@ const inter = Inter({ subsets: ['latin'] })
 // Component Imports 
 import VoiceAssistant from "../components/VoiceAssistant/VoiceAssistant";
 
-
-
 export default async function RootLayout({
   children,
 }: {
@@ -27,14 +25,10 @@ export default async function RootLayout({
 
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          <VoiceAssistant />
-          {children}
-        <Footer />
-        </Providers>
-      </body>
-    </html>
+    <>
+      <VoiceAssistant />
+      {children}
+      <Footer />
+    </>
   );
 }

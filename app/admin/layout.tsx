@@ -32,15 +32,11 @@ export default async function RootLayout({
       redirect(`/security/verify?redirecturl="${pathname}"&secureurl="${newSecureUrl as string}"`);
   }
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
+    <>
           <main className="flex min-h-[100vh] h-full">
             <AdminSidebar />
             {children}
           </main>
-        </Providers>
-      </body>
-    </html>
+    </>
   );
 }

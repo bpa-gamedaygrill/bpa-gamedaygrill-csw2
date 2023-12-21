@@ -24,13 +24,9 @@ export default async function RootLayout({
 
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
+    <>
           <VoiceAssistant />
           {children}
-        </Providers>
-      </body>
-    </html>
+    </>
   );
 }
