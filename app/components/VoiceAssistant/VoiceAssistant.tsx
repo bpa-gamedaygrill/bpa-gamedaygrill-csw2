@@ -11,6 +11,8 @@ import { parseCookies } from 'nookies';
 
 import deleteUserCookies from '../../../libs/actions/cookie/deleteUserCookies';
 
+import { useRouter } from 'next13-progressbar';
+
 interface SpeechRecognitionEvent extends Event {
   results: SpeechRecognitionResultList;
 }
@@ -28,6 +30,8 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
   const [transcription, setTranscription] = useState<string>("");
   const [popupDisabled, setPopupDisabled] = useState<boolean>(false);
   const [notSupported, setNotSupported] = useState<boolean>(true);
+
+  const router = useRouter();
 
   const cookies = parseCookies()
 
@@ -72,7 +76,7 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       console.log("after: ", recognizedPhrase)
 
       if (recognizedPhrase.includes('checkout')) {
-        window.location.replace("/checkout")
+        router.push("/checkout")
       }
 
 
@@ -98,23 +102,23 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       }
 
       if (recognizedPhrase.includes('menu')) {
-        window.location.replace("/menu")
+        router.push("/menu")
       }
 
       if (recognizedPhrase.includes('event')) {
-        window.location.replace("/events")
+        router.push("/events")
       }
 
       if (recognizedPhrase.includes('signup') ||
         recognizedPhrase.includes('tothesignuppage') ||
         recognizedPhrase.includes('signuppage')) {
-        window.location.replace("/signup")
+          router.push("/signup")
       }
 
       if (recognizedPhrase.includes('login') ||
         recognizedPhrase.includes('totheloginpage') ||
         recognizedPhrase.includes('loginpage')) {
-        window.location.replace("/login")
+          router.push("/login")
       }
 
       if (recognizedPhrase.includes('cart') ||
@@ -124,14 +128,14 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       }
 
       if (recognizedPhrase.includes('about')) {
-        window.location.replace('/about')
+        router.push('/about')
       }
 
 
         if (recognizedPhrase.includes('backhome') ||
         recognizedPhrase.includes('tothehomepage') ||
-        recognizedPhrase.includes('homepage')) {
-        window.location.replace("/")
+        recognizedPhrase.includes('home')) {
+          router.push("/")
       }
 
 

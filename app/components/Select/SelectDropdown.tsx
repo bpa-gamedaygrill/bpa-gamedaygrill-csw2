@@ -78,9 +78,7 @@ const SelectDropdown: React.FC<SelectDropdownInterface> = ({ options, includesRe
         <div className={`absolute origin-top w-full z-40 transition-all duration-150 ease-in-out bg-white top-[100%] left-0 rounded-md px-1 py-1 border-[1px] border-neutral-200 max-h-[150px] overflow-y-auto minimal-scrollbar flex flex-col items-center justify-start gap-1 ${ isOpened ? "mt-1 pointer-events-all scale-100 opacity-100" : "rotatex-sm pointer-events-none opacity-0 !scale-95" } `}>
           { options.map(function(data, index) {
             return (
-              <>
                 <p className={optionStyles} key={index} data-value={data.value} data-name={data.name} onClick={handleSetValue}>{ data.name }</p>
-              </>
             )
           }) }
           { includesResetButton && <> <div className="w-full !h-[1px] bg-neutral-200 my-2" ><p className="opacity-0">_</p></div> <p className={`${optionStyles} !py-2 mb-2`} onClick={reset}>Reset</p> </> }

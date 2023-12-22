@@ -94,9 +94,7 @@ return (
           </>
         ) : (
           menuItems && menuItems.map((item) => (
-          <>
             <MenuItem key={item.id} itemData={item} />
-          </>
           ))
         )}
         { !isLoading && menuItems?.length===0 && <p className="text-neutral-600 font-medium text-lg">No items match your search.</p> }
