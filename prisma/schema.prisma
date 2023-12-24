@@ -18,6 +18,7 @@ model User {
   hashedPassword String
   rewards Reward[]
   orders Order[]
+  reservations Reservation[]
   dateCreated DateTime @default(now())
 }
 
@@ -46,6 +47,13 @@ model Order {
   purchaseDate DateTime @default(now())
   totalCost String
   purchaseFullName String
+}
+
+model Reservation {
+  id String @id @default(cuid())
+  userId String?
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reservationDate DateTime
 }
 
 model Reward {

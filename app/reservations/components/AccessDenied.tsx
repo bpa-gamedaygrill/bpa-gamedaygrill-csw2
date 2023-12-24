@@ -4,7 +4,7 @@ import Link from 'next/link'
 const AccessDenied = () => {
   return (
   <>
-      <section className="fixed top-0 left-0 z-[100] pointer-events-auto w-full h-full bg-black/20 flex items-center justify-center backdrop-blur-sm">
+      <section className="fixed top-0 left-0 z-[100] pointer-events-auto w-full h-full bg-black/20 flex items-center justify-center backdrop-blur-sm px-3">
         <div className="px-7 py-10 bg-white rounded-lg w-full md:h-full max-w-[400px] md:max-h-[250px] flex flex-col items-center justify-between gap-8">
           <div className="flex flex-col justify-start items-center">
             <h1 className="text-2xl font-semibold tracking-tight opacity-80 text-center">Sign in to access this page</h1>

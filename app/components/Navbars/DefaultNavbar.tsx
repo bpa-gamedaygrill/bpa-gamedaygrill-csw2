@@ -25,7 +25,7 @@ const DefaultNavbar: React.FC<DefaultNavbarInterface> = ({ hideMiddlePill, botto
   const name = cookieStore.get('__obj1')
   return (
     <>
-      <SlidingHamburgerMenu />
+      <SlidingHamburgerMenu token={token} />
       <SlidingCartMenu />
       <nav className={`${bottomBorder && "border-b-[1px] border-neutral-black"} flex justify-center items-center z-[99] fixed w-full top-0 left-0 px-7 bg-white backdrop-blur-[3px] py-6 min-h-[105px] ${customStyles}`}>
         <section className="w-full ml-auto mr-auto h-full max-w-[1200px]  flex justify-between items-center">

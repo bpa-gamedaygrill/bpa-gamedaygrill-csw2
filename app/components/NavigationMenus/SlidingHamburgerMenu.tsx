@@ -4,20 +4,29 @@ import React from 'react'
 import { close } from "../../redux/features/hamburgerMenuSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { X, Info as InfoIcon, Calendar as CalendarIcon, Code as BriefcaseIcon ,BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Inbox as RewardsIcon, Briefcase } from "react-feather";
+import { parseCookies } from 'nookies';
 import Link from 'next/link';
-
+import deleteUserCookies from '../../../libs/actions/cookie/deleteUserCookies';
 // Component imports 
 import MenuLogo from './components/MenuLogo';
 
-const SlidingHamburgerMenu: React.FC = () => {
+interface SlidingHamburgerMenuInterface {
+  token: any;
+}
+
+const SlidingHamburgerMenu: React.FC<SlidingHamburgerMenuInterface> = ({ token }) => {
   const dispatch = useAppDispatch();
   const menuState = useAppSelector((state) => state.hamburgerMenuReducer.opened);
-
   const slideLinkStyles = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
 
   const closeHamburger = () => {
     dispatch(close())
   }
+  const logOut = async() => {
+    await deleteUserCookies()
+    window.location.reload();
+  }
+
   return (
     <>
       <section className={`lg:hidden top-0 left-0 fixed w-full h-full bg-black/40 backdrop-blur-[2px] z-[100] ${ menuState===false && "pointer-events-none opacity-0 delay-300 transition-all duration-100 ease-in-out" }`}>
@@ -80,11 +89,17 @@ const SlidingHamburgerMenu: React.FC = () => {
             </Link>
 
             <div className="w-full h-[1px] bg-neutral-200 mt-5"/>
-
+            { token == undefined 
+            ?
             <Link href="signup" className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md mt-7" onClick={closeHamburger}>
               <p className="text-neutral-600 text-sm font-semibold">Sign Up</p>
             </Link>
-
+            :
+            <button className="flex items-center justify-center gap-4 hover:bg-neutral-100 w-full py-3 px-5 bg-neutral-200 rounded-md mt-7" onClick={logOut}>
+              <p className="text-neutral-600 text-sm font-semibold">Log Out</p>
+            </button>
+            }
+            
             <Link href="menu" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md " onClick={closeHamburger}>
               <p className="text-white font-semibold text-sm">Order Now</p>
             </Link>

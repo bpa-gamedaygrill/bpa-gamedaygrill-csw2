@@ -39,7 +39,7 @@ const DefaultNavbarMiddlePill: React.FC<DefaultNavbarMiddlePillInterface> = ({ c
             </Link>
 
             <Link 
-            href="/reservation"
+            href="/reservations"
             className="bg-primary-red px-4 py-2 rounded-full hover:bg-red-700 transition-all duration-150 ease-in-out"
             >
               <p className="text-[0.75rem] font-medium text-white">Reserve</p>

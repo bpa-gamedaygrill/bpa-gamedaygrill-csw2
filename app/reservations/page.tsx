@@ -1,13 +1,16 @@
-import DefaultNavbar from '../../app/components/Navbars/DefaultNavbar'
 import React from 'react'
 
-const ReservationPage = () => {
+// Component Imports
+import DefaultNavbar from '../components/Navbars/DefaultNavbar'
+import ReservationContent from './components/ReservationContent'
+
+const EventsPage = () => {
   return (
-    <>
+  <>
       <DefaultNavbar />
-      <div>ReservationPage</div>
-    </>
+      <ReservationContent />
+  </>
   )
 }
 
-export default ReservationPage
+export default EventsPage
