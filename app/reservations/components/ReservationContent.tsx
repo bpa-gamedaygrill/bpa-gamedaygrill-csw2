@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import ReservationsTopBar from './ReservationTopBar'
 import AccessDenied from './AccessDenied'
 import ReserveTopBarSkeleton from './ReserveTopBarSkeleton'
+import ReservationList from './ReservationList'
 
 const ReservationContent = () => {
   const cookieStore = cookies();
@@ -16,6 +17,7 @@ const ReservationContent = () => {
           { token ? (
           <>
             <ReservationsTopBar />
+            <ReservationList userId={cookieStore.get('__obj2')?.value as string} />
           </> 
           )
           : (
