@@ -6,6 +6,7 @@ import ReservationsTopBar from './ReservationTopBar'
 import AccessDenied from './AccessDenied'
 import ReserveTopBarSkeleton from './ReserveTopBarSkeleton'
 import ReservationList from './ReservationList'
+import ReservationInfo from './ReservationInfo'
 
 const ReservationContent = () => {
   const cookieStore = cookies();
@@ -18,6 +19,7 @@ const ReservationContent = () => {
           <>
             <ReservationsTopBar />
             <ReservationList userId={cookieStore.get('__obj2')?.value as string} />
+            <ReservationInfo />
           </> 
           )
           : (
