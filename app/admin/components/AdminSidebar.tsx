@@ -30,13 +30,6 @@ const AdminSidebar = () => {
               />
               <p className="text-neutral-600 text-sm">Edit Menu</p>
             </Link>
-            <Link href="/admin/eventedit" className={`${slideLinkStyles}`}>
-              <EditIcon
-              color='rgb(82, 82, 82)'
-                size={20}
-              />
-              <p className="text-sm text-neutral-600">Edit Events</p>
-            </Link>
             <Link href="/admin/analytics" className={`${slideLinkStyles}`}>
               <AnalyticsIcon
               color='rgb(82, 82, 82)'

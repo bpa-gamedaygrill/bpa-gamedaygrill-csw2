@@ -28,7 +28,6 @@ const Footer = () => {
             <div className="flex flex-col items-center md:items-start justify-center gap-3">
               <h1 className="text-[1.45rem] font-semibold opacity-90">Navigate</h1>
               <FooterLink linkHref="" linkText="Home" />
-              <FooterLink linkHref="menu" linkText="Menu" />
               <FooterLink linkHref="signup" linkText="Signup" />
               <FooterLink linkHref="login" linkText="Login" />
             </div>
@@ -44,7 +43,7 @@ const Footer = () => {
               <h1 className="text-[1.45rem] font-semibold opacity-90">Bookings</h1>
               <FooterLink linkHref="reservations" linkText="Reservations" />
               <FooterLink linkHref="events" linkText="Events" />
-              <FooterLink linkHref="rewards" linkText="Rewards" />
+              <FooterLink linkHref="menu" linkText="Menu" />
             </div>
           </div>
 
