@@ -35,7 +35,6 @@ const Footer = () => {
             <div className="flex flex-col items-center md:items-start justify-center gap-3">
               <h1 className="text-[1.45rem] font-semibold opacity-90">Company</h1>
               <FooterLink linkHref="about" linkText="About" />
-              <FooterLink linkHref="teaminfo" linkText="Team Info" />
               <FooterLink linkHref="/#contact" linkText="Contact" />
             </div>
 
@@ -49,6 +48,9 @@ const Footer = () => {
 
         </div>
       </section>
+      <div className="w-full px-5 py-4 flex items-center justify-center text-neutral-600">
+        © GamedayGrill 2023-2024
+      </div>
     </>
   )
 }

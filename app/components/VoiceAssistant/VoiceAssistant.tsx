@@ -105,6 +105,11 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
         router.push("/menu")
       }
 
+      if (recognizedPhrase.includes('reserv')) {
+        router.push("/reservations")
+      }
+
+
       if (recognizedPhrase.includes('event')) {
         router.push("/events")
       }
