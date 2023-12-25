@@ -72,14 +72,6 @@ const SlidingHamburgerMenu: React.FC<SlidingHamburgerMenuInterface> = ({ token }
             </Link>
 
             <div className="w-full h-[1px] bg-neutral-300 my-5"/>
-            <Link href="/teaminfo" className={`${slideLinkStyles}`} onClick={closeHamburger}>
-              <BriefcaseIcon
-              color='rgb(82, 82, 82)'
-              size={20}
-              />
-              <p className="text-neutral-600 text-sm">Team Info</p>
-            </Link>
-
             <Link href="/#contact" className={`${slideLinkStyles}`} onClick={closeHamburger}>
               <RewardsIcon
               color='rgb(82, 82, 82)'
