@@ -11,6 +11,7 @@ import ReservationInfo from './ReservationInfo'
 const ReservationContent = () => {
   const cookieStore = cookies();
   const token = cookieStore.get('token')
+  const userId = cookieStore.get('__obj2')
   return (
   <>
       <main className="mt-36 lg:mt-40 px-7 relative">
@@ -19,7 +20,7 @@ const ReservationContent = () => {
           <>
             <ReservationsTopBar />
             <ReservationList userId={cookieStore.get('__obj2')?.value as string} />
-            <ReservationInfo />
+            <ReservationInfo userId={userId?.value as string} />
           </> 
           )
           : (
