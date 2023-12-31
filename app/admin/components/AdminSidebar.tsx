@@ -4,9 +4,16 @@ import React from 'react'
 import { X, Info as InfoIcon, Calendar as CalendarIcon, Code as BriefcaseIcon ,BookOpen as MenuOrderingIcon, Bookmark as EventsIcon, Inbox as RewardsIcon, Briefcase, Home, Edit as EditIcon, BarChart as AnalyticsIcon  } from "react-feather";
 import MenuLogo from '../../../app/components/NavigationMenus/components/MenuLogo';
 import Link from 'next/link';
+import { setCookie, destroyCookie } from 'nookies';
+import deleteAdminCookies from '../../../libs/actions/cookie/deleteAdminCookies';
 
 const AdminSidebar = () => {
   const slideLinkStyles = "flex items-center justify-start gap-4 w-full py-2 px-2 bg-white rounded-md";
+  const signOutOfAdmin = async() => {
+    await deleteAdminCookies()
+    window.location.replace("/");
+  }
+
   return (
   <>
       <section className={`top-0 left-0 sticky min-h-[100vh] max-w-[40%] md:max-w-[33%] lg:max-w-[25%] xl:max-w-[20%] w-full h-full`}>
@@ -45,9 +52,9 @@ const AdminSidebar = () => {
               <p className="text-neutral-600 text-sm font-semibold">Sign Up</p>
             </Link>
 
-            <Link href="menu" className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
-              <p className="text-white font-semibold text-sm">Order Now</p>
-            </Link>
+            <button onClick={signOutOfAdmin} className="flex items-center justify-center gap-4 hover:bg-red-700 w-full py-3 px-5 bg-primary-red rounded-md ">
+              <p className="text-white font-semibold text-sm">Sign Out of Admin</p>
+            </button>
           </section>
         </nav>
       </section>

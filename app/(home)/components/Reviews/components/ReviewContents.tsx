@@ -13,23 +13,6 @@ const ReviewContents = () => {
           <h1 className="text-2xl font-semibold tracking-tight text-neutral-800 mb-2">Don't take our word for it.</h1>
           <p className="text-[0.92rem] font-medium text-neutral-500">Look at the reviews left by thousands of customers.</p>
         </div>
-          <Link 
-          href="newreview"
-          className="bg-white px-4 py-0 flex gap-2 items-center justify-center min-h-[40px] rounded-full hover:bg-neutral-100 transition-all duration-150 ease-in-out group"
-          >
-          <p className="text-[0.9rem] font-medium text-neutral-400">Write a review</p>
-          <ChevronRight 
-          size={15}
-          color='rgb(163, 163, 163)'
-          className='group-hover:hidden block'
-          />
-          <ArrowRight 
-          size={15}
-          color='rgb(163, 163, 163)'
-          className='group-hover:block hidden'
-          />
-          </Link>
-
       </div>
 
       <div className="flex flex-wrap">
