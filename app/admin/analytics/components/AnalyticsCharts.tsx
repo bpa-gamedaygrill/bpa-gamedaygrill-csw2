@@ -107,7 +107,7 @@ const AnalyticsCharts = () => {
     labels: transformedData?.map((data) => data.date),
     datasets: [
       {
-        label: "Users Gained",
+        label: "Accounts Created",
         data: transformedData?.map((data) => data.gained)
       }
     ]
@@ -163,7 +163,7 @@ const AnalyticsCharts = () => {
       : 
         <>
         <div className="p-2 border-[1px] border-neutral-100 rounded-lg w-full">
-         <BarChart chartData={chartData} titleText='New Users by Day' />
+         <BarChart chartData={chartData} titleText='Accounts Created by Day' />
         </div>
         </>
        }
@@ -201,7 +201,7 @@ const AnalyticsCharts = () => {
       : 
         <>
         <div className="p-2 w-full border-[1px] border-neutral-100 rounded-lg">
-         <BarChart chartData={chartDataTwo} titleText='New Orders by Day' />
+         <BarChart chartData={chartDataTwo} titleText='Orders Placed by Day' />
         </div>
         </>
        }

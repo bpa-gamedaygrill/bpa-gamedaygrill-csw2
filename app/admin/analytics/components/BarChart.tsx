@@ -20,7 +20,7 @@ const BarChart: React.FC<BarChartInterface> = ({ chartData, titleText }) => {
         text: titleText as string,
       },
     },
-    backgroundColor: "#de2f2fcc",
+    backgroundColor: "#f87171",
     maintainAspectRatio: true,
     scales: {
       y: {
