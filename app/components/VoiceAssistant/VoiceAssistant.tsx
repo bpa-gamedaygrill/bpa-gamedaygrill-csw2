@@ -76,7 +76,7 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       console.log("after: ", recognizedPhrase)
 
       if (recognizedPhrase.includes('checkout')) {
-        router.push("/checkout")
+        window.location.replace("/checkout")
       }
 
 
@@ -102,28 +102,28 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       }
 
       if (recognizedPhrase.includes('menu')) {
-        router.push("/menu")
+        window.location.replace('/menu')
       }
 
       if (recognizedPhrase.includes('reserv')) {
-        router.push("/reservations")
+        window.location.replace("/reservations")
       }
 
 
       if (recognizedPhrase.includes('event')) {
-        router.push("/events")
+        window.location.replace("/events")
       }
 
       if (recognizedPhrase.includes('signup') ||
         recognizedPhrase.includes('tothesignuppage') ||
         recognizedPhrase.includes('signuppage')) {
-          router.push("/signup")
+          window.location.replace("/signup")
       }
 
       if (recognizedPhrase.includes('login') ||
         recognizedPhrase.includes('totheloginpage') ||
         recognizedPhrase.includes('loginpage')) {
-          router.push("/login")
+          window.location.replace("/login")
       }
 
       if (recognizedPhrase.includes('cart') ||
@@ -133,14 +133,14 @@ const VoiceAssistantContents: React.FC<VACInterface> = ({ isSmallScreen }) => {
       }
 
       if (recognizedPhrase.includes('about')) {
-        router.push('/about')
+        window.location.replace('/about')
       }
 
 
         if (recognizedPhrase.includes('backhome') ||
         recognizedPhrase.includes('tothehomepage') ||
         recognizedPhrase.includes('home')) {
-          router.push("/")
+          window.location.replace("/")
       }
 
 

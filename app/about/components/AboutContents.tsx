@@ -18,8 +18,8 @@ const AboutContents = () => {
           />
           <h1 className="text-2xl mt-12 font-semibold tracking-tight">Roles and Responsibilities</h1>
           <p className="mt-4 text-md font-medium opacity-60">Member 00143047: Lead Programmer, UI/UX Designer, Team Captain</p>
-          <p className="mt-4 text-md font-medium opacity-60">Member ________: Enter Roles and Responsibilities here....</p>
-          <p className="mt-4 text-md font-medium opacity-60">Member ________: Enter Roles and Responsibilities here....</p>
+          <p className="mt-4 text-md font-medium opacity-60">Member 00143044: Graphic Designer</p>
+          <p className="mt-4 text-md font-medium opacity-60">Member 00143032: Quality Assurance Tester</p>
           <h1 className="text-2xl mt-12 font-semibold tracking-tight">Competitor Details</h1>
           <p className="mt-4 text-md font-medium opacity-60">Website Design Team from Charter School of Wilmington, Wilmington, DE, 19807. Secondary Division (9-12)</p>
         </div>

@@ -21,6 +21,6 @@ export default function RootLayout({
     <>
           <VoiceAssistant />
           {children}
-        </>
+    </>
   );
 }
